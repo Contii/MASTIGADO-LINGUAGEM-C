@@ -1,0 +1,1 @@
+Pequeno programa em C que utiliza ponteiros para VOID e ponteiros para função com alocação dinamica de memoria para resolver algumas funções. Tudo isso comentado passo a passo.
