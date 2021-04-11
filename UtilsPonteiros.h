@@ -347,7 +347,7 @@ int     fatorial(int x){
 }
 
 //............raizDigital.............
-int somaAlgarismo(int x){
+int     somaAlgarismo(int x){
 
    if(((x/10) + (x%10)) <=9){
       x= ((x/10) + (x%10));
@@ -359,7 +359,7 @@ int somaAlgarismo(int x){
       return raizDigital(x);
 }
 
-int raizDigital(int x){
+int     raizDigital(int x){
 
     if (x>9)
        return somaAlgarismo(x);
@@ -369,14 +369,14 @@ int raizDigital(int x){
 }
 //....................................
 
-int somaDigitos(int x){
+int     somaDigitos(int x){
    if (x<10)
       return x;
 
    return x%10 + somaDigitos(x/10);
 }
 
-int quantosDigitosX(int k, int n){
+int     quantosDigitosX(int k, int n){
 
    if (n<10 && n!=k)
       return 0;
@@ -402,7 +402,7 @@ void    imprimeFloat(void *info){
    printf("%.2f   ", *pf);
 }
 
-int   comparaFloat(void *info1, void *info2){
+int     comparaFloat(void *info1, void *info2){
 
     float* pf1 = (float*)info1;
     float* pf2 = (float*)info2;
@@ -465,7 +465,7 @@ void    imprimeData (void *info){
    printf("teste %d /%d /%d \n", pdata->dia,pdata->mes,pdata->ano);
 }
 
-int comparaData(void* info1, void* info2){
+int     comparaData(void* info1, void* info2){
 
 /* Observe como a implementação do typedef afetou a definição STRUCT DATA e ponteiro
     para STRUCT DATA. */
