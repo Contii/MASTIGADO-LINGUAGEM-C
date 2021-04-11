@@ -294,7 +294,6 @@ int main(){
 
    printf("\n%d  %d", *((int*)px), *((int*)py) );
 
-
 /* Para esta lista, estarei resolvendo problemas com o uso de recursividade, Ao trabalhar
     com recursividade, não é aconselhado o uso de ponteiro, pois o mesmo pode ocasionar
      diversos erros e dificultar a absorção das implementações recursivas. Por este
@@ -410,7 +409,6 @@ int main(){
    x = 125543;
    printf("A soma dos digitos de %d = %d\n", x, somaDigitos(x) );
 
-
 /* ----------------------------------------------------------------------------------- */
 /* A seguinte implementação retornará quantas vezes um digito X aparece em um numero Y.*/
 
@@ -419,5 +417,4 @@ int main(){
    printf("O numero %d possui %d vezes o algarismo %d\n", y, quantosDigitosX(x,y) ,x);
 
 /* ----------------------------------------------------------------------------------- */
-
 }
