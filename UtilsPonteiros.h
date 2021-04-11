@@ -56,8 +56,9 @@ int     comparaInt(void *info1, void *info2){
 /* Função recebendo dois ponteiros VOID, trabalhando com eles em ponteiros INT,
     e retornando um valor INT. */
 
-       float* pf1 = (float*)info1;
-    float* pf2 = (float*)info2;
+    int* pf1 = (float*)info1;
+    int* pf2 = (float*)info2;
+    
     if (*pf1 > *pf2)
         return -1;
     if (*pf1 == *pf2)
