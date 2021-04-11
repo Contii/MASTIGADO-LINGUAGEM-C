@@ -6,19 +6,19 @@
 int main(){
 /* ----------------------------------------------------------------------------------- */
 /* Todo endereco de memoria [0000](ponteiro) usa sempre 4 bytes para ser armazenado,
-    desta forma, ao utilizar ponteiros VOID, podemos implementar funções que genéricas
-     que recebem dados de qualquer tipo e retornem dados de qualquer tipo, contanto que
-      seja feita uma implementação de variáveis utilizando ponteiros para VOID, funções
+    desta forma, ao utilizar ponteiros VOID, podemos implementar funções genéricas que
+     recebem dados de qualquer tipo e retornem dados de qualquer tipo, contanto que seja
+      feita uma implementação de variáveis utilizando ponteiros para VOID, funções
        que recebam ponteiros VOID e que retornem ponteiros VOID.*/
 
-   void *P; /* <-Declaração de um ponteiro VOID.(Aponta para qualquer tipo)
+   void *P; /* <-Declaração de um ponteiro VOID.(apontando para qualquer tipo)
                   Desta forma, nosso ponteiro poderá apontar para INT, FLOAT,
                    STRUCT ou qualquer outro tipo de dado.*/
 
 /* Lembre-se que ao escrever P, estaremos se referindo ao ponteiro, e nao ao valor
     para o qual ele aponta. Para se referir ao valor, utilizamos asterisco *. Perceba
      então que acima, apontamos para um valor sem tipo (VOID).
-     *P <- valor apontado por P (atualmente tem tipo)
+     *P <- valor apontado por P (atualmente sem tipo)
       P <- ponteiro P (por padrao possui tamanhao INT)*/
 
    P = malloc(sizeof(int)); /* <-P recebeu um espaço de memoria do tamanho INT, Desta
@@ -385,7 +385,7 @@ int main(){
 
    x = 2;
    y = 5;
-   printf("\nO MMC entre %d e %d = %d",x,y, calculoMDC(x,y) );
+   printf("\nO MMC entre %d e %d = %d",x,y, calculoMMC(x,y) );
 
 /* ----------------------------------------------------------------------------------- */
 /* A seguinte implementação retornará a potencia de um valor X elevado a Y. */
