@@ -508,7 +508,7 @@ void    bubbleSort(void* dados[], int tam, FuncaoComparacao fc){
 /* Veja nesta função, um parametro TYPEDEF definido no inicio da biblioteca. O comando
     FOR abaixo será responsável por contar até o numero de endereços do vetor (lembre
      que um vetor DADOS[5] possui 01234 endereços, por isso (n-1) foi usado. */
-   for (i=0; i<tam-1; i++){
+   for (i=0; i<n-1; i++){
 
 /* A primeira contagem do proximo FOR, contará até que J tenha percorrido todo o vetor
     fazendo comparações, Atribuindo então I++ e começando a contagem J novamente. */
@@ -517,7 +517,7 @@ void    bubbleSort(void* dados[], int tam, FuncaoComparacao fc){
     A contagem finaliza e I++. Um detalhe chave para este algoritmo, é que na proxima
      contagem de J, não será necessario contar o ultimo endereço de memoria, pois o
       maior numero com certeza estará no ultimo endereço de DADOS[] */
-      for (j=0; j<tam-(i+1); j++){
+      for (j=0; j<n-(i+1); j++){
 /* Caso a comparação FC do valor do primeiro endereço de DADOS[] seja maior que o valor
    Do próximo endereço de DADOS[] utilizo a varável TEMP para fazer a troca dos
     valores. */
