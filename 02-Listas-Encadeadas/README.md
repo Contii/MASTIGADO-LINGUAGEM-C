@@ -19,7 +19,7 @@ com ponteiros VOID e alocação dinâmica de memória.
  
  ## Arquivos
  
-### mainPonteiros.c
+### mainListas.c
 
 Front end do programa.
 
@@ -27,6 +27,10 @@ Front end do programa.
 
 Biblioteca para armazenar as structs que poderão ser utilizadas no programa.
 
-### UtilsPonteiros.h
+### lista.h
 
-Bilioteca com o Back-end do programa, contendo as funções e comentários.
+Biblioteca com o Back-end do programa, contendo funções de manipulação de listas.
+
+### UtilsListas.h
+
+Bilioteca com o Back-end do programa, contendo as funções e comentários. Uma versão adaptada da biblioteca utilsPonteiros.h, vista no programa anterior.
