@@ -3,14 +3,14 @@
 
 /* ------------------------------- */
 struct data{
-   int         dia;
-   int         mes;
-   int         ano;
+   int	dia;
+   int	mes;
+   int	ano;
 };
 /* ------------------------------- */
 struct pessoa{
-   int         Idade;
-   char        Nome[25];
+   int	Idade;
+   char	Nome[25];
 };
 /* ------------------------------- */
 #endif
