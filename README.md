@@ -1,31 +1,34 @@
-# Pequenos programas em C para construir algumas funções de estruturas de dados, tudo isso comentado passo a passo.
 
-  Uma boa leitura para aprender os conteúdos de linguagens de programação estruturada e estruturas de dados, existem comentários detalhados sobre como as funções e variáveis do programa se relacionam e como a arquitetura por trás do programa está funcionando.
 
-# Palavras-chave:
 
-Tipagem.
 
-Ponteiros VOID.
 
-Ponteiros para Função.
 
-Alocação Dinamica.
 
-Recursividade.
+<!DOCTYPE html>
+<html lang="en" data-color-mode="dark" data-light-theme="light" data-dark-theme="dark_dimmed" data-a11y-animated-images="system">
+  <head>
+    <meta charset="utf-8">
+  <link rel="dns-prefetch" href="https://github.githubassets.com">
+  <link rel="dns-prefetch" href="https://avatars.githubusercontent.com">
+  <link rel="dns-prefetch" href="https://github-cloud.s3.amazonaws.com">
+  <link rel="dns-prefetch" href="https://user-images.githubusercontent.com/">
+  <link rel="preconnect" href="https://github.githubassets.com" crossorigin>
+  <link rel="preconnect" href="https://avatars.githubusercontent.com">
 
-BubbleSort.
 
-Listas Encadeadas.
 
-Filas.
+  <link crossorigin="anonymous" media="all" rel="stylesheet" href="https://github.githubassets.com/assets/dark_dimmed-f22da508b62a.css" /><link data-color-theme="light" crossorigin="anonymous" media="all" rel="stylesheet" data-href="https://github.githubassets.com/assets/light-719f1193e0c0.css" /><link data-color-theme="dark" crossorigin="anonymous" media="all" rel="stylesheet" data-href="https://github.githubassets.com/assets/dark-0c343b529849.css" /><link data-color-theme="dark_high_contrast" crossorigin="anonymous" media="all" rel="stylesheet" data-href="https://github.githubassets.com/assets/dark_high_contrast-188ef1de59e6.css" /><link data-color-theme="dark_colorblind" crossorigin="anonymous" media="all" rel="stylesheet" data-href="https://github.githubassets.com/assets/dark_colorblind-bc6bf4eea850.css" /><link data-color-theme="light_colorblind" crossorigin="anonymous" media="all" rel="stylesheet" data-href="https://github.githubassets.com/assets/light_colorblind-527658dec362.css" /><link data-color-theme="light_high_contrast" crossorigin="anonymous" media="all" rel="stylesheet" data-href="https://github.githubassets.com/assets/light_high_contrast-c7a7fe0cd8ec.css" /><link data-color-theme="light_tritanopia" crossorigin="anonymous" media="all" rel="stylesheet" data-href="https://github.githubassets.com/assets/light_tritanopia-6aa855bdae0f.css" /><link data-color-theme="dark_tritanopia" crossorigin="anonymous" media="all" rel="stylesheet" data-href="https://github.githubassets.com/assets/dark_tritanopia-6aa5e25aacc0.css" />
+  
+    <link crossorigin="anonymous" media="all" rel="stylesheet" href="https://github.githubassets.com/assets/primer-031a7fd7c6cb.css" />
+    <link crossorigin="anonymous" media="all" rel="stylesheet" href="https://github.githubassets.com/assets/global-735461f76c33.css" />
+    <link crossorigin="anonymous" media="all" rel="stylesheet" href="https://github.githubassets.com/assets/github-b351ad9a2d52.css" />
+  <link crossorigin="anonymous" media="all" rel="stylesheet" href="https://github.githubassets.com/assets/code-356644123695.css" />
 
-Pilhas.
+    <meta name="optimizely-datafile" content="{&quot;groups&quot;: [], &quot;environmentKey&quot;: &quot;production&quot;, &quot;rollouts&quot;: [], &quot;typedAudiences&quot;: [], &quot;projectId&quot;: &quot;16737760170&quot;, &quot;variables&quot;: [], &quot;featureFlags&quot;: [], &quot;experiments&quot;: [], &quot;version&quot;: &quot;4&quot;, &quot;audiences&quot;: [{&quot;conditions&quot;: &quot;[\&quot;or\&quot;, {\&quot;match\&quot;: \&quot;exact\&quot;, \&quot;name\&quot;: \&quot;$opt_dummy_attribute\&quot;, \&quot;type\&quot;: \&quot;custom_attribute\&quot;, \&quot;value\&quot;: \&quot;$opt_dummy_value\&quot;}]&quot;, &quot;id&quot;: &quot;$opt_dummy_audience&quot;, &quot;name&quot;: &quot;Optimizely-Generated Audience for Backwards Compatibility&quot;}], &quot;anonymizeIP&quot;: true, &quot;sdkKey&quot;: &quot;WTc6awnGuYDdG98CYRban&quot;, &quot;attributes&quot;: [{&quot;id&quot;: &quot;16822470375&quot;, &quot;key&quot;: &quot;user_id&quot;}, {&quot;id&quot;: &quot;17143601254&quot;, &quot;key&quot;: &quot;spammy&quot;}, {&quot;id&quot;: &quot;18175660309&quot;, &quot;key&quot;: &quot;organization_plan&quot;}, {&quot;id&quot;: &quot;18813001570&quot;, &quot;key&quot;: &quot;is_logged_in&quot;}, {&quot;id&quot;: &quot;19073851829&quot;, &quot;key&quot;: &quot;geo&quot;}, {&quot;id&quot;: &quot;20175462351&quot;, &quot;key&quot;: &quot;requestedCurrency&quot;}, {&quot;id&quot;: &quot;20785470195&quot;, &quot;key&quot;: &quot;country_code&quot;}, {&quot;id&quot;: &quot;21656311196&quot;, &quot;key&quot;: &quot;opened_downgrade_dialog&quot;}], &quot;botFiltering&quot;: false, &quot;accountId&quot;: &quot;16737760170&quot;, &quot;events&quot;: [{&quot;experimentIds&quot;: [], &quot;id&quot;: &quot;17911811441&quot;, &quot;key&quot;: &quot;hydro_click.dashboard.teacher_toolbox_cta&quot;}, {&quot;experimentIds&quot;: [], &quot;id&quot;: &quot;18124116703&quot;, &quot;key&quot;: &quot;submit.organizations.complete_sign_up&quot;}, {&quot;experimentIds&quot;: [], &quot;id&quot;: &quot;18145892387&quot;, &quot;key&quot;: &quot;no_metric.tracked_outside_of_optimizely&quot;}, {&quot;experimentIds&quot;: [], &quot;id&quot;: &quot;18178755568&quot;, &quot;key&quot;: &quot;click.org_onboarding_checklist.add_repo&quot;}, {&quot;experimentIds&quot;: [], &quot;id&quot;: &quot;18180553241&quot;, &quot;key&quot;: &quot;submit.repository_imports.create&quot;}, {&quot;experimentIds&quot;: [], &quot;id&quot;: &quot;18186103728&quot;, &quot;key&quot;: &quot;click.help.learn_more_about_repository_creation&quot;}, {&quot;experimentIds&quot;: [], &quot;id&quot;: &quot;18188530140&quot;, &quot;key&quot;: &quot;test_event&quot;}, {&quot;experimentIds&quot;: [], &quot;id&quot;: &quot;18191963644&quot;, &quot;key&quot;: &quot;click.empty_org_repo_cta.transfer_repository&quot;}, {&quot;experimentIds&quot;: [], &quot;id&quot;: &quot;18195612788&quot;, &quot;key&quot;: &quot;click.empty_org_repo_cta.import_repository&quot;}, {&quot;experimentIds&quot;: [], &quot;id&quot;: &quot;18210945499&quot;, &quot;key&quot;: &quot;click.org_onboarding_checklist.invite_members&quot;}, {&quot;experimentIds&quot;: [], &quot;id&quot;: &quot;18211063248&quot;, &quot;key&quot;: &quot;click.empty_org_repo_cta.create_repository&quot;}, {&quot;experimentIds&quot;: [], &quot;id&quot;: &quot;18215721889&quot;, &quot;key&quot;: &quot;click.org_onboarding_checklist.update_profile&quot;}, {&quot;experimentIds&quot;: [], &quot;id&quot;: &quot;18224360785&quot;, &quot;key&quot;: &quot;click.org_onboarding_checklist.dismiss&quot;}, {&quot;experimentIds&quot;: [], &quot;id&quot;: &quot;18234832286&quot;, &quot;key&quot;: &quot;submit.organization_activation.complete&quot;}, {&quot;experimentIds&quot;: [], &quot;id&quot;: &quot;18252392383&quot;, &quot;key&quot;: &quot;submit.org_repository.create&quot;}, {&quot;experimentIds&quot;: [], &quot;id&quot;: &quot;18257551537&quot;, &quot;key&quot;: &quot;submit.org_member_invitation.create&quot;}, {&quot;experimentIds&quot;: [], &quot;id&quot;: &quot;18259522260&quot;, &quot;key&quot;: &quot;submit.organization_profile.update&quot;}, {&quot;experimentIds&quot;: [], &quot;id&quot;: &quot;18564603625&quot;, &quot;key&quot;: &quot;view.classroom_select_organization&quot;}, {&quot;experimentIds&quot;: [], &quot;id&quot;: &quot;18568612016&quot;, &quot;key&quot;: &quot;click.classroom_sign_in_click&quot;}, {&quot;experimentIds&quot;: [], &quot;id&quot;: &quot;18572592540&quot;, &quot;key&quot;: &quot;view.classroom_name&quot;}, {&quot;experimentIds&quot;: [], &quot;id&quot;: &quot;18574203855&quot;, &quot;key&quot;: &quot;click.classroom_create_organization&quot;}, {&quot;experimentIds&quot;: [], &quot;id&quot;: &quot;18582053415&quot;, &quot;key&quot;: &quot;click.classroom_select_organization&quot;}, {&quot;experimentIds&quot;: [], &quot;id&quot;: &quot;18589463420&quot;, &quot;key&quot;: &quot;click.classroom_create_classroom&quot;}, {&quot;experimentIds&quot;: [], &quot;id&quot;: &quot;18591323364&quot;, &quot;key&quot;: &quot;click.classroom_create_first_classroom&quot;}, {&quot;experimentIds&quot;: [], &quot;id&quot;: &quot;18591652321&quot;, &quot;key&quot;: &quot;click.classroom_grant_access&quot;}, {&quot;experimentIds&quot;: [], &quot;id&quot;: &quot;18607131425&quot;, &quot;key&quot;: &quot;view.classroom_creation&quot;}, {&quot;experimentIds&quot;: [], &quot;id&quot;: &quot;18831680583&quot;, &quot;key&quot;: &quot;upgrade_account_plan&quot;}, {&quot;experimentIds&quot;: [], &quot;id&quot;: &quot;19064064515&quot;, &quot;key&quot;: &quot;click.signup&quot;}, {&quot;experimentIds&quot;: [], &quot;id&quot;: &quot;19075373687&quot;, &quot;key&quot;: &quot;click.view_account_billing_page&quot;}, {&quot;experimentIds&quot;: [], &quot;id&quot;: &quot;19077355841&quot;, &quot;key&quot;: &quot;click.dismiss_signup_prompt&quot;}, {&quot;experimentIds&quot;: [], &quot;id&quot;: &quot;19079713938&quot;, &quot;key&quot;: &quot;click.contact_sales&quot;}, {&quot;experimentIds&quot;: [], &quot;id&quot;: &quot;19120963070&quot;, &quot;key&quot;: &quot;click.compare_account_plans&quot;}, {&quot;experimentIds&quot;: [], &quot;id&quot;: &quot;19151690317&quot;, &quot;key&quot;: &quot;click.upgrade_account_cta&quot;}, {&quot;experimentIds&quot;: [], &quot;id&quot;: &quot;19424193129&quot;, &quot;key&quot;: &quot;click.open_account_switcher&quot;}, {&quot;experimentIds&quot;: [], &quot;id&quot;: &quot;19520330825&quot;, &quot;key&quot;: &quot;click.visit_account_profile&quot;}, {&quot;experimentIds&quot;: [], &quot;id&quot;: &quot;19540970635&quot;, &quot;key&quot;: &quot;click.switch_account_context&quot;}, {&quot;experimentIds&quot;: [], &quot;id&quot;: &quot;19730198868&quot;, &quot;key&quot;: &quot;submit.homepage_signup&quot;}, {&quot;experimentIds&quot;: [], &quot;id&quot;: &quot;19820830627&quot;, &quot;key&quot;: &quot;click.homepage_signup&quot;}, {&quot;experimentIds&quot;: [], &quot;id&quot;: &quot;19988571001&quot;, &quot;key&quot;: &quot;click.create_enterprise_trial&quot;}, {&quot;experimentIds&quot;: [], &quot;id&quot;: &quot;20036538294&quot;, &quot;key&quot;: &quot;click.create_organization_team&quot;}, {&quot;experimentIds&quot;: [], &quot;id&quot;: &quot;20040653299&quot;, &quot;key&quot;: &quot;click.input_enterprise_trial_form&quot;}, {&quot;experimentIds&quot;: [], &quot;id&quot;: &quot;20062030003&quot;, &quot;key&quot;: &quot;click.continue_with_team&quot;}, {&quot;experimentIds&quot;: [], &quot;id&quot;: &quot;20068947153&quot;, &quot;key&quot;: &quot;click.create_organization_free&quot;}, {&quot;experimentIds&quot;: [], &quot;id&quot;: &quot;20086636658&quot;, &quot;key&quot;: &quot;click.signup_continue.username&quot;}, {&quot;experimentIds&quot;: [], &quot;id&quot;: &quot;20091648988&quot;, &quot;key&quot;: &quot;click.signup_continue.create_account&quot;}, {&quot;experimentIds&quot;: [], &quot;id&quot;: &quot;20103637615&quot;, &quot;key&quot;: &quot;click.signup_continue.email&quot;}, {&quot;experimentIds&quot;: [], &quot;id&quot;: &quot;20111574253&quot;, &quot;key&quot;: &quot;click.signup_continue.password&quot;}, {&quot;experimentIds&quot;: [], &quot;id&quot;: &quot;20120044111&quot;, &quot;key&quot;: &quot;view.pricing_page&quot;}, {&quot;experimentIds&quot;: [], &quot;id&quot;: &quot;20152062109&quot;, &quot;key&quot;: &quot;submit.create_account&quot;}, {&quot;experimentIds&quot;: [], &quot;id&quot;: &quot;20165800992&quot;, &quot;key&quot;: &quot;submit.upgrade_payment_form&quot;}, {&quot;experimentIds&quot;: [], &quot;id&quot;: &quot;20171520319&quot;, &quot;key&quot;: &quot;submit.create_organization&quot;}, {&quot;experimentIds&quot;: [], &quot;id&quot;: &quot;20222645674&quot;, &quot;key&quot;: &quot;click.recommended_plan_in_signup.discuss_your_needs&quot;}, {&quot;experimentIds&quot;: [], &quot;id&quot;: &quot;20227443657&quot;, &quot;key&quot;: &quot;submit.verify_primary_user_email&quot;}, {&quot;experimentIds&quot;: [], &quot;id&quot;: &quot;20234607160&quot;, &quot;key&quot;: &quot;click.recommended_plan_in_signup.try_enterprise&quot;}, {&quot;experimentIds&quot;: [], &quot;id&quot;: &quot;20238175784&quot;, &quot;key&quot;: &quot;click.recommended_plan_in_signup.team&quot;}, {&quot;experimentIds&quot;: [], &quot;id&quot;: &quot;20239847212&quot;, &quot;key&quot;: &quot;click.recommended_plan_in_signup.continue_free&quot;}, {&quot;experimentIds&quot;: [], &quot;id&quot;: &quot;20251097193&quot;, &quot;key&quot;: &quot;recommended_plan&quot;}, {&quot;experimentIds&quot;: [], &quot;id&quot;: &quot;20438619534&quot;, &quot;key&quot;: &quot;click.pricing_calculator.1_member&quot;}, {&quot;experimentIds&quot;: [], &quot;id&quot;: &quot;20456699683&quot;, &quot;key&quot;: &quot;click.pricing_calculator.15_members&quot;}, {&quot;experimentIds&quot;: [], &quot;id&quot;: &quot;20467868331&quot;, &quot;key&quot;: &quot;click.pricing_calculator.10_members&quot;}, {&quot;experimentIds&quot;: [], &quot;id&quot;: &quot;20476267432&quot;, &quot;key&quot;: &quot;click.trial_days_remaining&quot;}, {&quot;experimentIds&quot;: [], &quot;id&quot;: &quot;20476357660&quot;, &quot;key&quot;: &quot;click.discover_feature&quot;}, {&quot;experimentIds&quot;: [], &quot;id&quot;: &quot;20479287901&quot;, &quot;key&quot;: &quot;click.pricing_calculator.custom_members&quot;}, {&quot;experimentIds&quot;: [], &quot;id&quot;: &quot;20481107083&quot;, &quot;key&quot;: &quot;click.recommended_plan_in_signup.apply_teacher_benefits&quot;}, {&quot;experimentIds&quot;: [], &quot;id&quot;: &quot;20483089392&quot;, &quot;key&quot;: &quot;click.pricing_calculator.5_members&quot;}, {&quot;experimentIds&quot;: [], &quot;id&quot;: &quot;20484283944&quot;, &quot;key&quot;: &quot;click.onboarding_task&quot;}, {&quot;experimentIds&quot;: [], &quot;id&quot;: &quot;20484996281&quot;, &quot;key&quot;: &quot;click.recommended_plan_in_signup.apply_student_benefits&quot;}, {&quot;experimentIds&quot;: [], &quot;id&quot;: &quot;20486713726&quot;, &quot;key&quot;: &quot;click.onboarding_task_breadcrumb&quot;}, {&quot;experimentIds&quot;: [], &quot;id&quot;: &quot;20490791319&quot;, &quot;key&quot;: &quot;click.upgrade_to_enterprise&quot;}, {&quot;experimentIds&quot;: [], &quot;id&quot;: &quot;20491786766&quot;, &quot;key&quot;: &quot;click.talk_to_us&quot;}, {&quot;experimentIds&quot;: [], &quot;id&quot;: &quot;20494144087&quot;, &quot;key&quot;: &quot;click.dismiss_enterprise_trial&quot;}, {&quot;experimentIds&quot;: [], &quot;id&quot;: &quot;20499722759&quot;, &quot;key&quot;: &quot;completed_all_tasks&quot;}, {&quot;experimentIds&quot;: [], &quot;id&quot;: &quot;20500710104&quot;, &quot;key&quot;: &quot;completed_onboarding_tasks&quot;}, {&quot;experimentIds&quot;: [], &quot;id&quot;: &quot;20513160672&quot;, &quot;key&quot;: &quot;click.read_doc&quot;}, {&quot;experimentIds&quot;: [], &quot;id&quot;: &quot;20516196762&quot;, &quot;key&quot;: &quot;actions_enabled&quot;}, {&quot;experimentIds&quot;: [], &quot;id&quot;: &quot;20518980986&quot;, &quot;key&quot;: &quot;click.dismiss_trial_banner&quot;}, {&quot;experimentIds&quot;: [], &quot;id&quot;: &quot;20535446721&quot;, &quot;key&quot;: &quot;click.issue_actions_prompt.dismiss_prompt&quot;}, {&quot;experimentIds&quot;: [], &quot;id&quot;: &quot;20557002247&quot;, &quot;key&quot;: &quot;click.issue_actions_prompt.setup_workflow&quot;}, {&quot;experimentIds&quot;: [], &quot;id&quot;: &quot;20595070227&quot;, &quot;key&quot;: &quot;click.pull_request_setup_workflow&quot;}, {&quot;experimentIds&quot;: [], &quot;id&quot;: &quot;20626600314&quot;, &quot;key&quot;: &quot;click.seats_input&quot;}, {&quot;experimentIds&quot;: [], &quot;id&quot;: &quot;20642310305&quot;, &quot;key&quot;: &quot;click.decrease_seats_number&quot;}, {&quot;experimentIds&quot;: [], &quot;id&quot;: &quot;20662990045&quot;, &quot;key&quot;: &quot;click.increase_seats_number&quot;}, {&quot;experimentIds&quot;: [], &quot;id&quot;: &quot;20679620969&quot;, &quot;key&quot;: &quot;click.public_product_roadmap&quot;}, {&quot;experimentIds&quot;: [], &quot;id&quot;: &quot;20761240940&quot;, &quot;key&quot;: &quot;click.dismiss_survey_banner&quot;}, {&quot;experimentIds&quot;: [], &quot;id&quot;: &quot;20767210721&quot;, &quot;key&quot;: &quot;click.take_survey&quot;}, {&quot;experimentIds&quot;: [], &quot;id&quot;: &quot;20795281201&quot;, &quot;key&quot;: &quot;click.archive_list&quot;}, {&quot;experimentIds&quot;: [], &quot;id&quot;: &quot;20966790249&quot;, &quot;key&quot;: &quot;contact_sales.submit&quot;}, {&quot;experimentIds&quot;: [], &quot;id&quot;: &quot;20996500333&quot;, &quot;key&quot;: &quot;contact_sales.existing_customer&quot;}, {&quot;experimentIds&quot;: [], &quot;id&quot;: &quot;20996890162&quot;, &quot;key&quot;: &quot;contact_sales.blank_message_field&quot;}, {&quot;experimentIds&quot;: [], &quot;id&quot;: &quot;21000470317&quot;, &quot;key&quot;: &quot;contact_sales.personal_email&quot;}, {&quot;experimentIds&quot;: [], &quot;id&quot;: &quot;21002790172&quot;, &quot;key&quot;: &quot;contact_sales.blank_phone_field&quot;}, {&quot;experimentIds&quot;: [], &quot;id&quot;: &quot;21354412592&quot;, &quot;key&quot;: &quot;click.dismiss_create_readme&quot;}, {&quot;experimentIds&quot;: [], &quot;id&quot;: &quot;21366102546&quot;, &quot;key&quot;: &quot;click.dismiss_zero_user_content&quot;}, {&quot;experimentIds&quot;: [], &quot;id&quot;: &quot;21370252505&quot;, &quot;key&quot;: &quot;account_did_downgrade&quot;}, {&quot;experimentIds&quot;: [], &quot;id&quot;: &quot;21370840408&quot;, &quot;key&quot;: &quot;click.cta_create_readme&quot;}, {&quot;experimentIds&quot;: [], &quot;id&quot;: &quot;21375451068&quot;, &quot;key&quot;: &quot;click.cta_create_new_repository&quot;}, {&quot;experimentIds&quot;: [], &quot;id&quot;: &quot;21385390948&quot;, &quot;key&quot;: &quot;click.zero_user_content&quot;}, {&quot;experimentIds&quot;: [], &quot;id&quot;: &quot;21467712175&quot;, &quot;key&quot;: &quot;click.downgrade_keep&quot;}, {&quot;experimentIds&quot;: [], &quot;id&quot;: &quot;21484112202&quot;, &quot;key&quot;: &quot;click.downgrade&quot;}, {&quot;experimentIds&quot;: [], &quot;id&quot;: &quot;21495292213&quot;, &quot;key&quot;: &quot;click.downgrade_survey_exit&quot;}, {&quot;experimentIds&quot;: [], &quot;id&quot;: &quot;21508241468&quot;, &quot;key&quot;: &quot;click.downgrade_survey_submit&quot;}, {&quot;experimentIds&quot;: [], &quot;id&quot;: &quot;21512030356&quot;, &quot;key&quot;: &quot;click.downgrade_support&quot;}, {&quot;experimentIds&quot;: [], &quot;id&quot;: &quot;21539090022&quot;, &quot;key&quot;: &quot;click.downgrade_exit&quot;}, {&quot;experimentIds&quot;: [], &quot;id&quot;: &quot;21543640644&quot;, &quot;key&quot;: &quot;click_fetch_upstream&quot;}, {&quot;experimentIds&quot;: [], &quot;id&quot;: &quot;21646510300&quot;, &quot;key&quot;: &quot;click.move_your_work&quot;}, {&quot;experimentIds&quot;: [], &quot;id&quot;: &quot;21656151116&quot;, &quot;key&quot;: &quot;click.add_branch_protection_rule&quot;}, {&quot;experimentIds&quot;: [], &quot;id&quot;: &quot;21663860599&quot;, &quot;key&quot;: &quot;click.downgrade_dialog_open&quot;}, {&quot;experimentIds&quot;: [], &quot;id&quot;: &quot;21687860483&quot;, &quot;key&quot;: &quot;click.learn_about_protected_branches&quot;}, {&quot;experimentIds&quot;: [], &quot;id&quot;: &quot;21689050333&quot;, &quot;key&quot;: &quot;click.dismiss_protect_this_branch&quot;}, {&quot;experimentIds&quot;: [], &quot;id&quot;: &quot;21864370109&quot;, &quot;key&quot;: &quot;click.sign_in&quot;}], &quot;revision&quot;: &quot;1367&quot;}" />
 
-Arvores.
 
-<<<<<<< HEAD
-  <script type="text/javascript" src="https://gc.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=cRp4vsNzWBu4GAKLuA_nimgvP08j5Ftee933RF9Zr0loPq16uym57jOOK1EybmCg9wmgEFMJBY9EnddIgJnv9Iniy_RdcFJRTDaYRDlf3IC1naRRgX6sNQHJK6k6BCOd" charset="UTF-8"></script><script crossorigin="anonymous" defer="defer" type="application/javascript" src="https://github.githubassets.com/assets/wp-runtime-278b9dbdcfa8.js"></script>
+  <script type="text/javascript" src="https://gc.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=Ch47gjsp8jDZFkX9VVB-CsNQ_qMXDnrTpmM0HkzqBcFx27PoiM9eF3-uniPPki4bHhK-GQZRkdjHmgyeQs7ahSjnNTNMs7vovLECRiD7p8d_Q5WFzcJvqkFpp5PR_5wK" charset="UTF-8"></script><script crossorigin="anonymous" defer="defer" type="application/javascript" src="https://github.githubassets.com/assets/wp-runtime-278b9dbdcfa8.js"></script>
 <script crossorigin="anonymous" defer="defer" type="application/javascript" src="https://github.githubassets.com/assets/vendors-node_modules_smoothscroll-polyfill_dist_smoothscroll_js-node_modules_stacktrace-parse-297da6-aaa32681a0b3.js"></script>
 <script crossorigin="anonymous" defer="defer" type="application/javascript" src="https://github.githubassets.com/assets/environment-28efc4e97933.js"></script>
 <script crossorigin="anonymous" defer="defer" type="application/javascript" src="https://github.githubassets.com/assets/vendors-node_modules_github_selector-observer_dist_index_esm_js-58d8ed1c5cb7.js"></script>
@@ -71,7 +74,7 @@ Arvores.
 
     
 
-  <meta name="request-id" content="A5F1:4705:1255485:162C2AD:63C0E6BC" data-turbo-transient="true" /><meta name="html-safe-nonce" content="207835c7ce04a72cb4479e4c534158f57a1d57445eb57769c10dd7d4312e235e" data-turbo-transient="true" /><meta name="visitor-payload" content="eyJyZWZlcnJlciI6Imh0dHBzOi8vZ2l0aHViLmNvbS9Db250aWkvTUFTVElHQURPLUxJTkdVQUdFTS1DL3RyZWUvbWFzdGVyIiwicmVxdWVzdF9pZCI6IkE1RjE6NDcwNToxMjU1NDg1OjE2MkMyQUQ6NjNDMEU2QkMiLCJ2aXNpdG9yX2lkIjoiMTQ5MjUxMTcwMjY0NjYyMDk0OCIsInJlZ2lvbl9lZGdlIjoiYnJhemlsc291dGgiLCJyZWdpb25fcmVuZGVyIjoiaWFkIn0=" data-turbo-transient="true" /><meta name="visitor-hmac" content="6df88a76c23222fa955ec23e16b361aab3ed14762e7b73ea058a37248a3ed972" data-turbo-transient="true" />
+  <meta name="request-id" content="72F9:3FAD:138421C:176309E:63C0F054" data-turbo-transient="true" /><meta name="html-safe-nonce" content="207835c7ce04a72cb4479e4c534158f57a1d57445eb57769c10dd7d4312e235e" data-turbo-transient="true" /><meta name="visitor-payload" content="eyJyZWZlcnJlciI6Imh0dHBzOi8vZ2l0aHViLmNvbS9Db250aWkvTUFTVElHQURPLUxJTkdVQUdFTS1DIiwicmVxdWVzdF9pZCI6IjcyRjk6M0ZBRDoxMzg0MjFDOjE3NjMwOUU6NjNDMEYwNTQiLCJ2aXNpdG9yX2lkIjoiMTQ5MjUxMTcwMjY0NjYyMDk0OCIsInJlZ2lvbl9lZGdlIjoiYnJhemlsc291dGgiLCJyZWdpb25fcmVuZGVyIjoiaWFkIn0=" data-turbo-transient="true" /><meta name="visitor-hmac" content="231238d9b3792872aecfb79022e91028f04968ad109332b5070fad8408e4bbc4" data-turbo-transient="true" />
 
 
     <meta name="hovercard-subject-tag" content="repository:355366348" data-turbo-transient>
@@ -110,11 +113,11 @@ Arvores.
     <link rel="fluid-icon" href="https://github.com/fluidicon.png" title="GitHub">
     <meta property="fb:app_id" content="1401488693436528">
     <meta name="apple-itunes-app" content="app-id=1477376905" />
-      <meta name="twitter:image:src" content="https://opengraph.githubassets.com/a81eeaf35e7785b4d18874ed2667d68e7ed0792dc335d86fc7f11b43ae839270/Contii/MASTIGADO-LINGUAGEM-C" /><meta name="twitter:site" content="@github" /><meta name="twitter:card" content="summary_large_image" /><meta name="twitter:title" content="MASTIGADO-LINGUAGEM-C/README.md at master · Contii/MASTIGADO-LINGUAGEM-C" /><meta name="twitter:description" content="Contribute to Contii/MASTIGADO-LINGUAGEM-C development by creating an account on GitHub." />
-      <meta property="og:image" content="https://opengraph.githubassets.com/a81eeaf35e7785b4d18874ed2667d68e7ed0792dc335d86fc7f11b43ae839270/Contii/MASTIGADO-LINGUAGEM-C" /><meta property="og:image:alt" content="Contribute to Contii/MASTIGADO-LINGUAGEM-C development by creating an account on GitHub." /><meta property="og:image:width" content="1200" /><meta property="og:image:height" content="600" /><meta property="og:site_name" content="GitHub" /><meta property="og:type" content="object" /><meta property="og:title" content="MASTIGADO-LINGUAGEM-C/README.md at master · Contii/MASTIGADO-LINGUAGEM-C" /><meta property="og:url" content="https://github.com/Contii/MASTIGADO-LINGUAGEM-C" /><meta property="og:description" content="Contribute to Contii/MASTIGADO-LINGUAGEM-C development by creating an account on GitHub." />
+      <meta name="twitter:image:src" content="https://opengraph.githubassets.com/6bfd7759ada1eca155cc07ab9577734b8ea85cd7536255f4de0f3da66af3a384/Contii/MASTIGADO-LINGUAGEM-C" /><meta name="twitter:site" content="@github" /><meta name="twitter:card" content="summary_large_image" /><meta name="twitter:title" content="MASTIGADO-LINGUAGEM-C/README.md at master · Contii/MASTIGADO-LINGUAGEM-C" /><meta name="twitter:description" content="Contribute to Contii/MASTIGADO-LINGUAGEM-C development by creating an account on GitHub." />
+      <meta property="og:image" content="https://opengraph.githubassets.com/6bfd7759ada1eca155cc07ab9577734b8ea85cd7536255f4de0f3da66af3a384/Contii/MASTIGADO-LINGUAGEM-C" /><meta property="og:image:alt" content="Contribute to Contii/MASTIGADO-LINGUAGEM-C development by creating an account on GitHub." /><meta property="og:image:width" content="1200" /><meta property="og:image:height" content="600" /><meta property="og:site_name" content="GitHub" /><meta property="og:type" content="object" /><meta property="og:title" content="MASTIGADO-LINGUAGEM-C/README.md at master · Contii/MASTIGADO-LINGUAGEM-C" /><meta property="og:url" content="https://github.com/Contii/MASTIGADO-LINGUAGEM-C" /><meta property="og:description" content="Contribute to Contii/MASTIGADO-LINGUAGEM-C development by creating an account on GitHub." />
       
     <link rel="assets" href="https://github.githubassets.com/">
-      <link rel="shared-web-socket" href="wss://alive.github.com/_sockets/u/54067355/ws?session=eyJ2IjoiVjMiLCJ1Ijo1NDA2NzM1NSwicyI6MTAyNzE3NzkzNSwiYyI6MTY5ODM1MTUyLCJ0IjoxNjczNTg2Mzc0fQ==--a248e1ef1155bba0f92408262cc55fd880e34fde132839c80343d582911f71ff" data-refresh-url="/_alive" data-session-id="4e6552ba1fe7884c4a1a23daca9be1aca19083e43e93d12446bcae9c73c05375">
+      <link rel="shared-web-socket" href="wss://alive.github.com/_sockets/u/54067355/ws?session=eyJ2IjoiVjMiLCJ1Ijo1NDA2NzM1NSwicyI6MTAyNzE3NzkzNSwiYyI6NzAzMjAwNzY3LCJ0IjoxNjczNTg4ODI0fQ==--7a97f2d9548b0ec48f2e9021c00622b58fc6c1d3f11e9e1efe6fe2289197b1d5" data-refresh-url="/_alive" data-session-id="4e6552ba1fe7884c4a1a23daca9be1aca19083e43e93d12446bcae9c73c05375">
       <link rel="shared-web-socket-src" href="/assets-cdn/worker/socket-worker-b87581f5816c.js">
 
 
@@ -237,7 +240,7 @@ Arvores.
           spellcheck="false"
           autocomplete="off"
         >
-        <input type="hidden" value="KBUhDBzVRlQbaEcFrQPHO4cssdWsZTeRHMXjSAdTscAoPYQAPgclNmW_4-SLw_rtUSDh8JG70S6anfcSITqyTA" data-csrf="true" class="js-data-jump-to-suggestions-path-csrf" />
+        <input type="hidden" value="CNdmqdF5emZrmZxzTHd-2yHINTUKFfYTcoBYpmhf720I_8Ol86sZBBVOOJJqt0MN98RlEDfLEKz02Ez8Tjbs4Q" data-csrf="true" class="js-data-jump-to-suggestions-path-csrf" />
         <input type="hidden" class="js-site-search-type-field" name="type" >
             <svg xmlns="http://www.w3.org/2000/svg" width="22" height="20" aria-hidden="true" class="mr-1 header-search-key-slash"><path fill="none" stroke="#979A9C" opacity=".4" d="M3.5.5h12c1.7 0 3 1.3 3 3v13c0 1.7-1.3 3-3 3h-12c-1.7 0-3-1.3-3-3v-13c0-1.7 1.3-3 3-3z"></path><path fill="#979A9C" d="M11.8 6L8 15.1h-.9L10.8 6h1z"></path></svg>
 
@@ -444,7 +447,7 @@ Arvores.
       <img class="avatar avatar-user" loading="lazy" decoding="async" src="https://avatars.githubusercontent.com/u/54067355?s=40&amp;v=4" width="20" height="20" alt="@Contii" />
       Contii
 </a>
-    <!-- '"` --><!-- </textarea></xmp> --></option></form><form data-turbo="false" action="/logout" accept-charset="UTF-8" method="post"><input type="hidden" name="authenticity_token" value="viS2xEHZr5QrdjshcDzo68DWsTWrRaJssez20t2Og0l0TpwaLiI2cCG2ur5bT_0T_BZPCzf3yQe1Ukh1nE4jQQ" />
+    <!-- '"` --><!-- </textarea></xmp> --></option></form><form data-turbo="false" action="/logout" accept-charset="UTF-8" method="post"><input type="hidden" name="authenticity_token" value="hiy9Zl6xtZ56Fb2v_8vE0dyp4mgh-aVAUWdnXn6X1cZMRpe4MUosenDVPDDUuNEp4GkcVr1LzitV2dn5P1d1zg" />
       <button
         type="submit"
         class="Header-link mr-0 mr-md-3 py-2 py-md-3 border-top border-md-top-0 border-white-fade d-md-none btn-link d-block width-full text-left"
@@ -479,7 +482,7 @@ Arvores.
     <div class="Header-item mr-0 mr-md-3 flex-order-1 flex-md-order-none">
         
 
-<notification-indicator data-channel="eyJjIjoibm90aWZpY2F0aW9uLWNoYW5nZWQ6NTQwNjczNTUiLCJ0IjoxNjczNTg2Mzc0fQ==--1323f6b8cf008980def106a5ac6c22b1734bcd774ad46d485e50d3d318d9904c" data-indicator-mode="none" data-tooltip-global="You have unread notifications" data-tooltip-unavailable="Notifications are unavailable at the moment." data-tooltip-none="You have no unread notifications" data-view-component="true" class="js-socket-channel">
+<notification-indicator data-channel="eyJjIjoibm90aWZpY2F0aW9uLWNoYW5nZWQ6NTQwNjczNTUiLCJ0IjoxNjczNTg4ODI0fQ==--5e7128d10e090190523b397b6a5ea7584dfd8b8a2336a1e684117c658a8d3318" data-indicator-mode="none" data-tooltip-global="You have unread notifications" data-tooltip-unavailable="Notifications are unavailable at the moment." data-tooltip-none="You have no unread notifications" data-view-component="true" class="js-socket-channel">
   <a id="AppHeader-notifications-button" href="/notifications"
     class="Header-link notification-indicator position-relative tooltipped tooltipped-sw"
 
@@ -1593,7 +1596,7 @@ Arvores.
 
       <li>
   <div class="float-left" data-test-selector="pin-repo-button">
-    <!-- '"` --><!-- </textarea></xmp> --></option></form><form data-turbo="false" action="/Contii/MASTIGADO-LINGUAGEM-C/profile_pin" accept-charset="UTF-8" method="post"><input type="hidden" name="_method" value="delete" autocomplete="off" /><input type="hidden" name="authenticity_token" value="CcbxChank-4AlbUZmtNWG3N47531Na0kZH36DD65ynCHuXdhDkca7BW4uoQI6dwzMvJJ1Jkyu0PCQ1rat54tJg" autocomplete="off" />
+    <!-- '"` --><!-- </textarea></xmp> --></option></form><form data-turbo="false" action="/Contii/MASTIGADO-LINGUAGEM-C/profile_pin" accept-charset="UTF-8" method="post"><input type="hidden" name="_method" value="delete" autocomplete="off" /><input type="hidden" name="authenticity_token" value="KGbZ9HB5hbE39Vs0wiA8xllc-pXYfKB_aVY6wj8ggsymGV-faJkMsyLYVKlQGrbuGNZc3LR7thjPaJoUtgdlmg" autocomplete="off" />
         <button type="submit" data-view-component="true" class="btn-sm btn">    <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-pin mr-2">
     <path fill-rule="evenodd" d="M4.456.734a1.75 1.75 0 012.826.504l.613 1.327a3.081 3.081 0 002.084 1.707l2.454.584c1.332.317 1.8 1.972.832 2.94L11.06 10l3.72 3.72a.75.75 0 11-1.061 1.06L10 11.06l-2.204 2.205c-.968.968-2.623.5-2.94-.832l-.584-2.454a3.081 3.081 0 00-1.707-2.084l-1.327-.613a1.75 1.75 0 01-.504-2.826L4.456.734zM5.92 1.866a.25.25 0 00-.404-.072L1.794 5.516a.25.25 0 00.072.404l1.328.613A4.582 4.582 0 015.73 9.63l.584 2.454a.25.25 0 00.42.12l5.47-5.47a.25.25 0 00-.12-.42L9.63 5.73a4.581 4.581 0 01-3.098-2.537L5.92 1.866z"></path>
 </svg>Unpin
@@ -1664,7 +1667,7 @@ Arvores.
             </header>
 
             <div class="SelectMenu-list">
-              <!-- '"` --><!-- </textarea></xmp> --></option></form><form data-target="notifications-list-subscription-form.form" data-action="submit:notifications-list-subscription-form#submitForm" data-turbo="false" action="/notifications/subscribe" accept-charset="UTF-8" method="post"><input type="hidden" name="authenticity_token" value="PponshEIFrveYhmwhrB2k0J9DdhRcr9gG7HnAeGs7m0qmfr35hO91LXBqY6mPFLfFUHJE8I5f1BhHdeUo4X7-g" autocomplete="off" />
+              <!-- '"` --><!-- </textarea></xmp> --></option></form><form data-target="notifications-list-subscription-form.form" data-action="submit:notifications-list-subscription-form#submitForm" data-turbo="false" action="/notifications/subscribe" accept-charset="UTF-8" method="post"><input type="hidden" name="authenticity_token" value="OdXEvo8D_cbPyZGvOL5p2ZAj-YOSDUI144tu5HPLDLkt1hn7eBhWqaRqIZEYMk2Vxx89SAFGggWZJ15xMeIZLg" autocomplete="off" />
 
                 <input type="hidden" name="repository_id" value="355366348">
 
@@ -1792,7 +1795,7 @@ Arvores.
           hidden
         >
           <div class="SelectMenu-modal notifications-component-dialog-modal overflow-visible">
-            <!-- '"` --><!-- </textarea></xmp> --></option></form><form data-target="notifications-list-subscription-form.customform" data-action="submit:notifications-list-subscription-form#submitCustomForm" data-turbo="false" action="/notifications/subscribe" accept-charset="UTF-8" method="post"><input type="hidden" name="authenticity_token" value="-YWyYXh0FhuHCstrKI9GhscSQg5nwrkrIRNvUdObUTvthm8kj2-9dOype1UIA2LKkC6GxfSJeRtbv1_EkbJErA" autocomplete="off" />
+            <!-- '"` --><!-- </textarea></xmp> --></option></form><form data-target="notifications-list-subscription-form.customform" data-action="submit:notifications-list-subscription-form#submitCustomForm" data-turbo="false" action="/notifications/subscribe" accept-charset="UTF-8" method="post"><input type="hidden" name="authenticity_token" value="FTZ-eTFAVjXuljirz-sKilHMz2sVaJgr4_haxJPBJEQBNaM8xlv9WoU1iJXvZy7GBvALoIYjWBuZVGpR0egx0w" autocomplete="off" />
 
               <input type="hidden" name="repository_id" value="355366348">
 
@@ -1963,13 +1966,13 @@ Arvores.
       
 >
     <div class="SelectMenu-modal">
-        <button class="SelectMenu-closeButton position-absolute right-0 m-2" type="button" aria-label="Close menu" data-toggle-for="details-9cc830">
+        <button class="SelectMenu-closeButton position-absolute right-0 m-2" type="button" aria-label="Close menu" data-toggle-for="details-d8b5a6">
           <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-x">
     <path fill-rule="evenodd" d="M3.72 3.72a.75.75 0 011.06 0L8 6.94l3.22-3.22a.75.75 0 111.06 1.06L9.06 8l3.22 3.22a.75.75 0 11-1.06 1.06L8 9.06l-3.22 3.22a.75.75 0 01-1.06-1.06L6.94 8 3.72 4.78a.75.75 0 010-1.06z"></path>
 </svg>
         </button>
       <div
-        id="filter-menu-9cc830"
+        id="filter-menu-d8b5a6"
         class="d-flex flex-column flex-1 overflow-hidden"
 >
         <div
@@ -2011,8 +2014,8 @@ Arvores.
 
   <div data-view-component="true" class="js-toggler-container js-social-container starring-container on d-flex">
     <div data-view-component="true" class="starred BtnGroup flex-1">
-      <!-- '"` --><!-- </textarea></xmp> --></option></form><form class="js-social-form BtnGroup-parent flex-auto js-deferred-toggler-target" data-turbo="false" action="/Contii/MASTIGADO-LINGUAGEM-C/unstar" accept-charset="UTF-8" method="post"><input type="hidden" name="authenticity_token" value="4H6LNq3ihQTstw-0pODZdK4Ll2VJR0eoIWSuVUcHDgvnNxP3VfS5CIR6l3RZhiAsw4VxWsA1VzS-mioJRtkOOw" autocomplete="off" />
-          <input type="hidden" value="4mVIxsH6GKPpndV6VAXiGKaFXJlGH5I6IszumAiPOdLlLNAHOewkr4FQTbqpYxtAywu6ps9tgqa9MmrECVE54g" data-csrf="true" class="js-confirm-csrf-token" />
+      <!-- '"` --><!-- </textarea></xmp> --></option></form><form class="js-social-form BtnGroup-parent flex-auto js-deferred-toggler-target" data-turbo="false" action="/Contii/MASTIGADO-LINGUAGEM-C/unstar" accept-charset="UTF-8" method="post"><input type="hidden" name="authenticity_token" value="XoaUkMQnnZPMVMBxWysopqhtK6dHvl1Ssl4YP0tg_V1ZzwxRPDGhn6SZWLGmTdH-xePNmM7MTc4toJxjSr79bQ" autocomplete="off" />
+          <input type="hidden" value="pzXfj0tqLnkncnGRaXESwP9_NBn8zTbIfz_dAkcI2kOgfEdOs3wSdU-_6VGUF-uYkvHSJnW_JlTgwVleRtbacw" data-csrf="true" class="js-confirm-csrf-token" />
         <input type="hidden" name="context" value="repository">
           <button data-hydro-click="{&quot;event_type&quot;:&quot;repository.click&quot;,&quot;payload&quot;:{&quot;target&quot;:&quot;UNSTAR_BUTTON&quot;,&quot;repository_id&quot;:355366348,&quot;originating_url&quot;:&quot;https://github.com/Contii/MASTIGADO-LINGUAGEM-C/blob/master/README.md&quot;,&quot;user_id&quot;:54067355}}" data-hydro-click-hmac="365b9a71abf12fc8f4514cf8bbdc23ff3734ba05e54700a1773b77071126a807" data-ga-click="Repository, click unstar button, action:blob#show; text:Unstar" aria-label="Unstar this repository (1)" type="submit" data-view-component="true" class="rounded-left-2 btn-sm btn BtnGroup-item">    <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-star-fill starred-button-icon d-inline-block mr-2">
     <path fill-rule="evenodd" d="M8 .25a.75.75 0 01.673.418l1.882 3.815 4.21.612a.75.75 0 01.416 1.279l-3.046 2.97.719 4.192a.75.75 0 01-1.088.791L8 12.347l-3.766 1.98a.75.75 0 01-1.088-.79l.72-4.194L.818 6.374a.75.75 0 01.416-1.28l4.21-.611L7.327.668A.75.75 0 018 .25z"></path>
@@ -2032,13 +2035,13 @@ Arvores.
       
 >
     <div class="SelectMenu-modal">
-        <button class="SelectMenu-closeButton position-absolute right-0 m-2" type="button" aria-label="Close menu" data-toggle-for="details-566d4c">
+        <button class="SelectMenu-closeButton position-absolute right-0 m-2" type="button" aria-label="Close menu" data-toggle-for="details-ae1742">
           <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-x">
     <path fill-rule="evenodd" d="M3.72 3.72a.75.75 0 011.06 0L8 6.94l3.22-3.22a.75.75 0 111.06 1.06L9.06 8l3.22 3.22a.75.75 0 11-1.06 1.06L8 9.06l-3.22 3.22a.75.75 0 01-1.06-1.06L6.94 8 3.72 4.78a.75.75 0 010-1.06z"></path>
 </svg>
         </button>
       <div
-        id="filter-menu-566d4c"
+        id="filter-menu-ae1742"
         class="d-flex flex-column flex-1 overflow-hidden"
 >
         <div
@@ -2059,7 +2062,7 @@ Arvores.
 </details>
 </div>
     <div data-view-component="true" class="unstarred BtnGroup flex-1">
-      <!-- '"` --><!-- </textarea></xmp> --></option></form><form class="js-social-form BtnGroup-parent flex-auto" data-turbo="false" action="/Contii/MASTIGADO-LINGUAGEM-C/star" accept-charset="UTF-8" method="post"><input type="hidden" name="authenticity_token" value="FB6KRCaAdQRFmL3DIdrfcMRBg-SX6ifO4vQyE3TJcKTonEMhHobdpGqFJnAhFOyrEg2iW8Dk8F9XJUoqK9G31w" autocomplete="off" />
+      <!-- '"` --><!-- </textarea></xmp> --></option></form><form class="js-social-form BtnGroup-parent flex-auto" data-turbo="false" action="/Contii/MASTIGADO-LINGUAGEM-C/star" accept-charset="UTF-8" method="post"><input type="hidden" name="authenticity_token" value="sEaWl3sKsvm_GCDddW2zWeTp1PB2m1QHTS14TTfgAcNMxF_yQwwaWZAFu251o4CCMqX1TyGVg5b4_AB0aPjGsA" autocomplete="off" />
         <input type="hidden" name="context" value="repository">
           <button data-hydro-click="{&quot;event_type&quot;:&quot;repository.click&quot;,&quot;payload&quot;:{&quot;target&quot;:&quot;STAR_BUTTON&quot;,&quot;repository_id&quot;:355366348,&quot;originating_url&quot;:&quot;https://github.com/Contii/MASTIGADO-LINGUAGEM-C/blob/master/README.md&quot;,&quot;user_id&quot;:54067355}}" data-hydro-click-hmac="67351b5da45ba9392a3ee3640dca1a68e186ed274b13264265ed261374b7c50e" data-ga-click="Repository, click star button, action:blob#show; text:Star" aria-label="Star this repository (1)" type="submit" data-view-component="true" class="js-toggler-target rounded-left-2 btn-sm btn BtnGroup-item">    <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-star d-inline-block mr-2">
     <path fill-rule="evenodd" d="M8 .25a.75.75 0 01.673.418l1.882 3.815 4.21.612a.75.75 0 01.416 1.279l-3.046 2.97.719 4.192a.75.75 0 01-1.088.791L8 12.347l-3.766 1.98a.75.75 0 01-1.088-.79l.72-4.194L.818 6.374a.75.75 0 01.416-1.28l4.21-.611L7.327.668A.75.75 0 018 .25zm0 2.445L6.615 5.5a.75.75 0 01-.564.41l-3.097.45 2.24 2.184a.75.75 0 01.216.664l-.528 3.084 2.769-1.456a.75.75 0 01.698 0l2.77 1.456-.53-3.084a.75.75 0 01.216-.664l2.24-2.183-3.096-.45a.75.75 0 01-.564-.41L8 2.694v.001z"></path>
@@ -2079,13 +2082,13 @@ Arvores.
       
 >
     <div class="SelectMenu-modal">
-        <button class="SelectMenu-closeButton position-absolute right-0 m-2" type="button" aria-label="Close menu" data-toggle-for="details-566d4c">
+        <button class="SelectMenu-closeButton position-absolute right-0 m-2" type="button" aria-label="Close menu" data-toggle-for="details-ae1742">
           <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-x">
     <path fill-rule="evenodd" d="M3.72 3.72a.75.75 0 011.06 0L8 6.94l3.22-3.22a.75.75 0 111.06 1.06L9.06 8l3.22 3.22a.75.75 0 11-1.06 1.06L8 9.06l-3.22 3.22a.75.75 0 01-1.06-1.06L6.94 8 3.72 4.78a.75.75 0 010-1.06z"></path>
 </svg>
         </button>
       <div
-        id="filter-menu-566d4c"
+        id="filter-menu-ae1742"
         class="d-flex flex-column flex-1 overflow-hidden"
 >
         <div
@@ -2121,7 +2124,7 @@ Arvores.
 
   <ul data-view-component="true" class="UnderlineNav-body list-style-none">
       <li data-view-component="true" class="d-inline-flex">
-  <a id="code-tab" href="/Contii/MASTIGADO-LINGUAGEM-C/tree/master" data-tab-item="i0code-tab" data-selected-links="repo_source repo_downloads repo_commits repo_releases repo_tags repo_branches repo_packages repo_deployments /Contii/MASTIGADO-LINGUAGEM-C/tree/master" data-pjax="#repo-content-pjax-container" data-turbo-frame="repo-content-turbo-frame" data-hotkey="g c" data-analytics-event="{&quot;category&quot;:&quot;Underline navbar&quot;,&quot;action&quot;:&quot;Click tab&quot;,&quot;label&quot;:&quot;Code&quot;,&quot;target&quot;:&quot;UNDERLINE_NAV.TAB&quot;}" aria-current="page" data-view-component="true" class="UnderlineNav-item no-wrap js-responsive-underlinenav-item js-selected-navigation-item selected">
+  <a id="code-tab" href="/Contii/MASTIGADO-LINGUAGEM-C" data-tab-item="i0code-tab" data-selected-links="repo_source repo_downloads repo_commits repo_releases repo_tags repo_branches repo_packages repo_deployments /Contii/MASTIGADO-LINGUAGEM-C" data-pjax="#repo-content-pjax-container" data-turbo-frame="repo-content-turbo-frame" data-hotkey="g c" data-analytics-event="{&quot;category&quot;:&quot;Underline navbar&quot;,&quot;action&quot;:&quot;Click tab&quot;,&quot;label&quot;:&quot;Code&quot;,&quot;target&quot;:&quot;UNDERLINE_NAV.TAB&quot;}" aria-current="page" data-view-component="true" class="UnderlineNav-item no-wrap js-responsive-underlinenav-item js-selected-navigation-item selected">
     
                 <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-code UnderlineNav-octicon d-none d-sm-inline">
     <path fill-rule="evenodd" d="M4.72 3.22a.75.75 0 011.06 1.06L2.06 8l3.72 3.72a.75.75 0 11-1.06 1.06L.47 8.53a.75.75 0 010-1.06l4.25-4.25zm6.56 0a.75.75 0 10-1.06 1.06L13.94 8l-3.72 3.72a.75.75 0 101.06 1.06l4.25-4.25a.75.75 0 000-1.06l-4.25-4.25z"></path>
@@ -2238,7 +2241,7 @@ Arvores.
 </summary>
   <details-menu role="menu" data-view-component="true" class="dropdown-menu dropdown-menu-sw">          <ul>
               <li data-menu-item="i0code-tab" hidden>
-                <a role="menuitem" class="js-selected-navigation-item selected dropdown-item" aria-current="page" data-selected-links="repo_source repo_downloads repo_commits repo_releases repo_tags repo_branches repo_packages repo_deployments /Contii/MASTIGADO-LINGUAGEM-C/tree/master" href="/Contii/MASTIGADO-LINGUAGEM-C/tree/master">
+                <a role="menuitem" class="js-selected-navigation-item selected dropdown-item" aria-current="page" data-selected-links="repo_source repo_downloads repo_commits repo_releases repo_tags repo_branches repo_packages repo_deployments /Contii/MASTIGADO-LINGUAGEM-C" href="/Contii/MASTIGADO-LINGUAGEM-C">
                   Code
 </a>              </li>
               <li data-menu-item="i1issues-tab" hidden>
@@ -2304,7 +2307,7 @@ Arvores.
 
 
     
-<a class="d-none js-permalink-shortcut" data-hotkey="y" href="/Contii/MASTIGADO-LINGUAGEM-C/blob/0ca46b89a68feee05f0650cc5b66ff5e2f218394/README.md">Permalink</a>
+<a class="d-none js-permalink-shortcut" data-hotkey="y" href="/Contii/MASTIGADO-LINGUAGEM-C/blob/c554f88ffa402558fa5ee5c65f281df9f2c2d305/README.md">Permalink</a>
 
 <div class="d-flex flex-items-start flex-shrink-0 pb-3 flex-wrap flex-md-nowrap flex-justify-between flex-md-justify-start">
   
@@ -2365,9 +2368,9 @@ Arvores.
             "
             query-endpoint="/Contii/MASTIGADO-LINGUAGEM-C/refs"
             can-create
-            cache-key="v0:1673585737.7386749"
+            cache-key="v0:1673586548.299374"
             current-committish="bWFzdGVy"
-            default-branch="bWFpbg=="
+            default-branch="bWFzdGVy"
             name-with-owner="Q29udGlpL01BU1RJR0FETy1MSU5HVUFHRU0tQw=="
             prefetch-on-mouseover
           >
@@ -2380,7 +2383,7 @@ Arvores.
     <create-repo-from-selector
       check-tag-name-exists-path="/Contii/MASTIGADO-LINGUAGEM-C/branches/check_tag_name_exists"
     >
-      <!-- '"` --><!-- </textarea></xmp> --></option></form><form data-turbo="false" action="/Contii/MASTIGADO-LINGUAGEM-C/branches" accept-charset="UTF-8" method="post"><input type="hidden" name="authenticity_token" value="GuVR-QUIy4d_a2QPszIhc9ckd2o60QPlII0CEJkUQdM02ZIdZdexHKQ-35thvVD3D8nLOIFUtkMFwM3UXlyI2A" />
+      <!-- '"` --><!-- </textarea></xmp> --></option></form><form data-turbo="false" action="/Contii/MASTIGADO-LINGUAGEM-C/branches" accept-charset="UTF-8" method="post"><input type="hidden" name="authenticity_token" value="XuMc2U-oJzzBikhEgtiRqFJxNbqj55wqYTLAklWoDg9w3989L3ddpxrf89BQV-AsipyJ6BhiKYxEfw9WkuDHBA" />
         <input data-target="create-repo-from-selector.refName" type="hidden" name="name" value="{{ refName }}">
         <input type="hidden" name="branch"  value="master">
         <input type="hidden" name="path_binary" value="UkVBRE1FLm1k">
@@ -2398,7 +2401,7 @@ Arvores.
           <div>
             <span class="text-bold">Create branch: {{ refName }}</span>
             <span class="color-fg-muted">from ‘master’</span>
-            <input type="hidden" value="1roxhCJkMIONiR-84REEu-Qz4w4cXDA19V2TNFGGfqXKmU_jMKTaVZm2dS4s8OeNwz5gkNt30qBL3IBaxaOMMw" data-csrf="true" data-target="create-repo-from-selector.checkTagNameExistsPathCsrf" />
+            <input type="hidden" value="MXtnBNSw-a8Hj0d1MDE-Hc2BcRRGHNmPjxJz9_1pF5ctWBljxnATeROwLef90N0r6ozyioE3Oxoxk2CZaUzlAQ" data-csrf="true" data-target="create-repo-from-selector.checkTagNameExistsPathCsrf" />
           </div>
         </button>
 </form>    </create-repo-from-selector>
@@ -2442,9 +2445,9 @@ Arvores.
             "
             data-targets="input-demux.sinks"
             query-endpoint="/Contii/MASTIGADO-LINGUAGEM-C/refs"
-            cache-key="v0:1673585737.7386749"
+            cache-key="v0:1673586548.299374"
             current-committish="bWFzdGVy"
-            default-branch="bWFpbg=="
+            default-branch="bWFzdGVy"
             name-with-owner="Q29udGlpL01BU1RJR0FETy1MSU5HVUFHRU0tQw=="
           >
 
@@ -2520,7 +2523,7 @@ Arvores.
 
 
   <h2 id="blob-path" class="breadcrumb flex-auto flex-self-center min-width-0 text-normal mx-2 width-full width-md-auto flex-order-1 flex-md-order-none mt-3 mt-md-0">
-    <span class="js-repo-root text-bold"><span class="js-path-segment d-inline-block wb-break-all"><a data-turbo-frame="repo-content-turbo-frame" href="/Contii/MASTIGADO-LINGUAGEM-C/tree/master"><span>MASTIGADO-LINGUAGEM-C</span></a></span></span><span class="separator">/</span><strong class="final-path">README.md</strong>
+    <span class="js-repo-root text-bold"><span class="js-path-segment d-inline-block wb-break-all"><a data-turbo-frame="repo-content-turbo-frame" href="/Contii/MASTIGADO-LINGUAGEM-C"><span>MASTIGADO-LINGUAGEM-C</span></a></span></span><span class="separator">/</span><strong class="final-path">README.md</strong>
   </h2>
     <a href="/Contii/MASTIGADO-LINGUAGEM-C/find/master" data-pjax="" data-hotkey="t" data-view-component="true" class="btn mr-2 d-none d-md-block">    Go to file
 </a>
@@ -2549,7 +2552,7 @@ Arvores.
 
 </clipboard-copy>        </li>
         <li>
-          <clipboard-copy data-toggle-for="blob-more-options-details" aria-label="Copy permalink" value="https://github.com/Contii/MASTIGADO-LINGUAGEM-C/blob/0ca46b89a68feee05f0650cc5b66ff5e2f218394/README.md" data-view-component="true" class="dropdown-item cursor-pointer">
+          <clipboard-copy data-toggle-for="blob-more-options-details" aria-label="Copy permalink" value="https://github.com/Contii/MASTIGADO-LINGUAGEM-C/blob/c554f88ffa402558fa5ee5c65f281df9f2c2d305/README.md" data-view-component="true" class="dropdown-item cursor-pointer">
     
             <span class="d-flex flex-items-baseline">
               <span class="flex-auto">Copy permalink</span>
@@ -2578,7 +2581,7 @@ Arvores.
   
 </div></div>
 
-    <include-fragment src="/Contii/MASTIGADO-LINGUAGEM-C/spoofed_commit_check/0ca46b89a68feee05f0650cc5b66ff5e2f218394" data-test-selector="spoofed-commit-check"></include-fragment>
+    <include-fragment src="/Contii/MASTIGADO-LINGUAGEM-C/spoofed_commit_check/c554f88ffa402558fa5ee5c65f281df9f2c2d305" data-test-selector="spoofed-commit-check"></include-fragment>
 
     <div class="Box d-flex flex-column flex-shrink-0 mb-3">
   <include-fragment src="/Contii/MASTIGADO-LINGUAGEM-C/contributors/master/README.md" class="commit-loader">
@@ -2652,24 +2655,24 @@ Arvores.
 
   <div class="d-flex py-1 py-md-0 flex-auto flex-order-1 flex-md-order-2 flex-sm-grow-0 flex-justify-between hide-sm hide-md">
         <div class="BtnGroup">
-      <a href="/Contii/MASTIGADO-LINGUAGEM-C/blob/master/README.md?plain=1" data-permalink-href="/Contii/MASTIGADO-LINGUAGEM-C/blob/0ca46b89a68feee05f0650cc5b66ff5e2f218394/README.md?plain=1" aria-label="Display the source blob" data-view-component="true" class="source tooltipped tooltipped tooltipped-n  js-permalink-replaceable-link btn-sm btn BtnGroup-item">    <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-code">
+      <a href="/Contii/MASTIGADO-LINGUAGEM-C/blob/master/README.md?plain=1" data-permalink-href="/Contii/MASTIGADO-LINGUAGEM-C/blob/c554f88ffa402558fa5ee5c65f281df9f2c2d305/README.md?plain=1" aria-label="Display the source blob" data-view-component="true" class="source tooltipped tooltipped tooltipped-n  js-permalink-replaceable-link btn-sm btn BtnGroup-item">    <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-code">
     <path fill-rule="evenodd" d="M4.72 3.22a.75.75 0 011.06 1.06L2.06 8l3.72 3.72a.75.75 0 11-1.06 1.06L.47 8.53a.75.75 0 010-1.06l4.25-4.25zm6.56 0a.75.75 0 10-1.06 1.06L13.94 8l-3.72 3.72a.75.75 0 101.06 1.06l4.25-4.25a.75.75 0 000-1.06l-4.25-4.25z"></path>
 </svg>
-</a>      <a href="/Contii/MASTIGADO-LINGUAGEM-C/blob/master/README.md" data-permalink-href="/Contii/MASTIGADO-LINGUAGEM-C/blob/0ca46b89a68feee05f0650cc5b66ff5e2f218394/README.md" aria-label="Display the rendered blob" data-view-component="true" class="rendered tooltipped tooltipped tooltipped-n selected js-permalink-replaceable-link btn-sm btn BtnGroup-item">    <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-file">
+</a>      <a href="/Contii/MASTIGADO-LINGUAGEM-C/blob/master/README.md" data-permalink-href="/Contii/MASTIGADO-LINGUAGEM-C/blob/c554f88ffa402558fa5ee5c65f281df9f2c2d305/README.md" aria-label="Display the rendered blob" data-view-component="true" class="rendered tooltipped tooltipped tooltipped-n selected js-permalink-replaceable-link btn-sm btn BtnGroup-item">    <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-file">
     <path fill-rule="evenodd" d="M3.75 1.5a.25.25 0 00-.25.25v12.5c0 .138.112.25.25.25h9.5a.25.25 0 00.25-.25V6h-2.75A1.75 1.75 0 019 4.25V1.5H3.75zm6.75.062V4.25c0 .138.112.25.25.25h2.688a.252.252 0 00-.011-.013l-2.914-2.914a.272.272 0 00-.013-.011zM2 1.75C2 .784 2.784 0 3.75 0h6.586c.464 0 .909.184 1.237.513l2.914 2.914c.329.328.513.773.513 1.237v9.586A1.75 1.75 0 0113.25 16h-9.5A1.75 1.75 0 012 14.25V1.75z"></path>
 </svg>
 </a>  </div>
 
 
     <div class="BtnGroup">
-        <a data-permalink-href="/Contii/MASTIGADO-LINGUAGEM-C/raw/0ca46b89a68feee05f0650cc5b66ff5e2f218394/README.md" href="/Contii/MASTIGADO-LINGUAGEM-C/raw/master/README.md" id="raw-url" data-view-component="true" class="js-permalink-replaceable-link btn-sm btn BtnGroup-item">    Raw
-</a>          <a data-permalink-href="/Contii/MASTIGADO-LINGUAGEM-C/blame/0ca46b89a68feee05f0650cc5b66ff5e2f218394/README.md" href="/Contii/MASTIGADO-LINGUAGEM-C/blame/master/README.md" data-hotkey="b" data-view-component="true" class="js-update-url-with-hash js-permalink-replaceable-link btn-sm btn BtnGroup-item">    Blame
+        <a data-permalink-href="/Contii/MASTIGADO-LINGUAGEM-C/raw/c554f88ffa402558fa5ee5c65f281df9f2c2d305/README.md" href="/Contii/MASTIGADO-LINGUAGEM-C/raw/master/README.md" id="raw-url" data-view-component="true" class="js-permalink-replaceable-link btn-sm btn BtnGroup-item">    Raw
+</a>          <a data-permalink-href="/Contii/MASTIGADO-LINGUAGEM-C/blame/c554f88ffa402558fa5ee5c65f281df9f2c2d305/README.md" href="/Contii/MASTIGADO-LINGUAGEM-C/blame/master/README.md" data-hotkey="b" data-view-component="true" class="js-update-url-with-hash js-permalink-replaceable-link btn-sm btn BtnGroup-item">    Blame
 </a>    </div>
 
     <div class="d-flex">
         
 <div class="ml-1" data-test-selector="edit-dropdown-menu-component">
-  <!-- '"` --><!-- </textarea></xmp> --></option></form><form class="BtnGroup-parent js-update-url-with-hash " data-turbo="false" action="/Contii/MASTIGADO-LINGUAGEM-C/edit/master/README.md" accept-charset="UTF-8" method="post"><input type="hidden" name="authenticity_token" value="pJWADTSUh0RJBeOv7CVoYKoSXwgiuOkan6GmKMgUh3hZ4g2wDNCyxFZQNQtBAxvBbJMq0veoH_UdepOQUOwNuQ" autocomplete="off" />
+  <!-- '"` --><!-- </textarea></xmp> --></option></form><form class="BtnGroup-parent js-update-url-with-hash " data-turbo="false" action="/Contii/MASTIGADO-LINGUAGEM-C/edit/master/README.md" accept-charset="UTF-8" method="post"><input type="hidden" name="authenticity_token" value="_0EL3fHgvgXwMlUh3EqlvNJJY1tslob_m5am1Khrm-YCNoZgyaSLhe9ng4VxbNYdFMgWgbmGcBAZTZNsMJMRJw" autocomplete="off" />
       <button title="Edit this file" data-hotkey="e" data-disable-with="" data-test-selector="edit-icon-button" type="submit" data-view-component="true" class="btn-sm BtnGroup-item btn">    <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-pencil">
     <path fill-rule="evenodd" d="M11.013 1.427a1.75 1.75 0 012.474 0l1.086 1.086a1.75 1.75 0 010 2.474l-8.61 8.61c-.21.21-.47.364-.756.445l-3.251.93a.75.75 0 01-.927-.928l.929-3.25a1.75 1.75 0 01.445-.758l8.61-8.61zm1.414 1.06a.25.25 0 00-.354 0L10.811 3.75l1.439 1.44 1.263-1.263a.25.25 0 000-.354l-1.086-1.086zM11.189 6.25L9.75 4.81l-6.286 6.287a.25.25 0 00-.064.108l-.558 1.953 1.953-.558a.249.249 0 00.108-.064l6.286-6.286z"></path>
 </svg>
@@ -2679,7 +2682,7 @@ Arvores.
 </summary>    <div class="SelectMenu right-0">
       <div class="SelectMenu-modal width-full">
         <div class="SelectMenu-list SelectMenu-list--borderless py-2">
-          <!-- '"` --><!-- </textarea></xmp> --></option></form><form class="SelectMenu-item js-update-url-with-hash " data-turbo="false" action="/Contii/MASTIGADO-LINGUAGEM-C/edit/master/README.md" accept-charset="UTF-8" method="post"><input type="hidden" name="authenticity_token" value="a7hhH0l8VyG_fi3okDGnCQdTC1LxHDMbebxoZyD7nCuWz-yicThioaAr-0w9F9SowdJ-iCQMxfT7Z13fuAMW6g" autocomplete="off" />
+          <!-- '"` --><!-- </textarea></xmp> --></option></form><form class="SelectMenu-item js-update-url-with-hash " data-turbo="false" action="/Contii/MASTIGADO-LINGUAGEM-C/edit/master/README.md" accept-charset="UTF-8" method="post"><input type="hidden" name="authenticity_token" value="CjFoheOlRFq9EPLSSjd9jC1Noyw1MFWFJ8oICy6Zk_r3RuU42-Fx2qJFJHbnEQ4t68zW9uAgo2qlET2ztmEZOw" autocomplete="off" />
               <button title="Edit this file" data-test-selector="edit-text-button" type="submit" data-view-component="true" class="btn-invisible btn width-full d-flex flex-justify-between color-fg-default text-normal p-0">    <div class="mr-5">Edit this file</div>
               <div class="color-fg-muted">E</div>
 </button></form>
@@ -2698,7 +2701,7 @@ Arvores.
 
         
 <div data-test-selector="remote-clipboard-copy">
-  <remote-clipboard-copy class="d-inline-block btn-octicon" style="height: 26px" data-src="/Contii/MASTIGADO-LINGUAGEM-C/raw/0ca46b89a68feee05f0650cc5b66ff5e2f218394/README.md" data-action="click:remote-clipboard-copy#remoteCopy">
+  <remote-clipboard-copy class="d-inline-block btn-octicon" style="height: 26px" data-src="/Contii/MASTIGADO-LINGUAGEM-C/raw/c554f88ffa402558fa5ee5c65f281df9f2c2d305/README.md" data-action="click:remote-clipboard-copy#remoteCopy">
   
 
   <span data-target="remote-clipboard-copy.idle">      <span class="tooltipped tooltipped-nw cursor-pointer" data-hydro-click="{&quot;event_type&quot;:&quot;repository.click&quot;,&quot;payload&quot;:{&quot;target&quot;:&quot;COPY_RAW_CONTENTS_BUTTON&quot;,&quot;repository_id&quot;:355366348,&quot;originating_url&quot;:&quot;https://github.com/Contii/MASTIGADO-LINGUAGEM-C/blob/master/README.md&quot;,&quot;user_id&quot;:54067355}}" data-hydro-click-hmac="0d94881a8bb8ba63c909482af3d844350c0b91a28bcc35c72988e9fb89457fe4" aria-label="Copy raw contents">
@@ -2726,7 +2729,7 @@ Arvores.
 </remote-clipboard-copy></div>
 
 
-          <!-- '"` --><!-- </textarea></xmp> --></option></form><form class="inline-form" data-turbo="false" action="/Contii/MASTIGADO-LINGUAGEM-C/delete/master/README.md" accept-charset="UTF-8" method="post"><input type="hidden" name="authenticity_token" value="Qzy8n5FJQwtwd1erMdaPEoncLgX6pEpDo48C_mcpYsFiu7CKpDnZpWDIABruJ_DX9IGrA4YiqIx5btc0rdIcpA" />
+          <!-- '"` --><!-- </textarea></xmp> --></option></form><form class="inline-form" data-turbo="false" action="/Contii/MASTIGADO-LINGUAGEM-C/delete/master/README.md" accept-charset="UTF-8" method="post"><input type="hidden" name="authenticity_token" value="rXVUs-DBL6jH47YSGIneDh4iwpx0Yga_dI-8blmF-CKM8lim1bG1Btdc4aPHeKHLY39Hmgjk5HCubmmkk36GRw" />
             <button class="btn-octicon btn-octicon-danger tooltipped tooltipped-nw" type="submit"
               aria-label="Delete this file" data-disable-with>
               <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-trash">
@@ -2975,6 +2978,3 @@ Arvores.
   </body>
 </html>
 
-=======
-## Agradecimento especial ao Prof. Dr. Evando Carlos Pessini.
->>>>>>> da175c685da55773c2dc7c1e282e0b5192dff1ca
