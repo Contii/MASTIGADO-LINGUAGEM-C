@@ -1,3 +1,6 @@
+
+<p align="center"> <img src="https://github.com/Contii/MASTIGADO-LINGUAGEM-C/blob/master/02-Listas-Encadeadas/Imagem-Lista-Encadeada.png" width="100%"> </p>
+
 # Programa de Listas Encadeadas.
 
 Listas encadeadas são compostas por `Structs` chamadas de Nós, formadas por dois valores:
