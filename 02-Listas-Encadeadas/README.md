@@ -1,5 +1,5 @@
 
-<p align="center"> <img src="https://github.com/Contii/MASTIGADO-LINGUAGEM-C/blob/master/02-Listas-Encadeadas/Imagem-Lista-Encadeada.png" width="100%"> </p>
+<p align="center"> <img src="https://github.com/Contii/MASTIGADO-LINGUAGEM-C/blob/master/02-Listas-Encadeadas/Imagens/Imagem-Lista-Encadeada.png" width="100%"> </p>
 
 # Programa de Listas Encadeadas.
 
@@ -19,6 +19,10 @@ Uma lista encadeada deve ser acessada pela primeira `Struct Noh`, como ja deve t
 O campo info poderá ser `INT` para uma lista de numeros inteiros, mas neste programa trabalhamos com ponteiros `VOID`.
 desta forma, qualquer valor poderá ser armazenado na `struct Noh`, até mesmo outra `struct`. Aqui começa a se ver a importância de saber trabalhar
 com ponteiros `VOID` e alocação dinâmica de memória.
+
+#### Segue uma imagem de como uma lista de ponteiros VOID pode ser construida:
+
+<p align="center"> <img src="https://github.com/Contii/MASTIGADO-LINGUAGEM-C/blob/master/02-Listas-Encadeadas/Imagens/Imagem-Lista-Encadeada-VOID.png" width="100%"> </p>
  
  ## Arquivos
  
