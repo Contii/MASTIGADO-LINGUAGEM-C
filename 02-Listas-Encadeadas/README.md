@@ -37,8 +37,8 @@ Biblioteca para armazenar as structs que poderão ser utilizadas no programa.
 
 ### lista.h
 
-Biblioteca com o Back-end do programa, contendo funções de manipulação de listas.
+Biblioteca com o Back-End do programa, contendo funções de manipulação de listas.
 
 ### UtilsListas.h
 
-Bilioteca com o Back-end do programa, contendo as funções e comentários. Uma versão adaptada da biblioteca `utilsPonteiros.h`, vista no programa anterior.
+Bilioteca com o Back-End do programa, contendo as funções e comentários. Uma versão adaptada da biblioteca `utilsPonteiros.h`, vista no programa anterior.
