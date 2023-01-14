@@ -25,7 +25,7 @@ typedef void  (*FuncaoImpressao) (void *);
 typedef void* (*FuncaoAlocacao)  (void *);
 typedef void  (*FuncaoLiberacao) (void *);
 typedef int   (*FuncaoPredicado) (void *);
-typedef pNohd   (*FuncaoLocalizar) (pDLista, FuncaoComparacao);
+typedef pNohd (*FuncaoLocalizar) (pDLista, FuncaoComparacao);
 
 
 /* ---------------------------- OPERAÇÕES ----------------------------- */

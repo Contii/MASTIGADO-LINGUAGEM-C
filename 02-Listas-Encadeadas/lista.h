@@ -8,7 +8,6 @@
 /* ----------------------------------- FUNÇÕES BASE ---------------------------------- */
 /* ----------------------------------------------------------------------------------- */
 
-
 pDLista criarLista(){
 
 /* Cria um ponteiro do tipo pDLista e aloca memoria para o mesmo.*/
@@ -183,7 +182,39 @@ int     contemInfo(pDLista pd, void *info1, FuncaoComparacao pfc){
 
 
 /* ----------------------------------------------------------------------------------- */
+/* -------------------------------- FUNÇÕES RECURSIVAS ------------------------------- */
+/* ----------------------------------------------------------------------------------- */
 
+void    imprimirListaRecursivamente(pDLista pd, FuncaoImpressao pfi){
+
+   imprimirListaRecursivo(pd->primeiro, pfi);
+}
+void    imprimirListaRecursivo(struct noh *atual, FuncaoImpressao pfi){
+   if (atual == NULL)
+      return;
+
+   pfi(atual->info);
+   imprimirListaRecursivo(atual->prox, pfi);
+}
+
+void    resetarListaRecursiva(pNoh atual){
+   if (atual == NULL)
+      return;
+   resetarListaRecursiva(atual->prox);
+   free(atual);
+}
+void    resetarListaRecursivamente(pDLista pd){
+
+   resetarListaRecursiva(pd->primeiro);
+   pd->primeiro   = NULL;
+   pd->ultimo     = NULL;
+   pd->quantidade = 0;
+}
+
+
+/* ----------------------------------------------------------------------------------- */
+/* ---------------------------------- OUTRAS FUNÇÕES --------------------------------- */
+/* ----------------------------------------------------------------------------------- */
 
 int     quantosNoh(pDLista lista){
 
@@ -394,58 +425,6 @@ void    menorNoInicioPessini(pDLista lista, FuncaoComparacao pfc, FuncaoLocaliza
    menor->info   = auxInfo;   /* atribui o valor do primeiro para o menor noh. */
 }
 
-
-
-
-
-
-
-
-
-
-//.................................. IMPRIME RECURSIVO ..................................
-void    imprimirListaRecursivamente(pDLista pd, FuncaoImpressao pfi){
-
-   imprimirListaRecursivo(pd->primeiro, pfi);
-}
-void    imprimirListaRecursivo(struct noh *atual, FuncaoImpressao pfi){
-   if (atual == NULL)
-      return;
-
-   pfi(atual->info);
-   imprimirListaRecursivo(atual->prox, pfi);
-}
-//.......................................................................................
-
-//.................................. RESETA RECURSIVO ...................................
-void    resetarListaRecursiva(pNoh atual){
-   if (atual == NULL)
-      return;
-   resetarListaRecursiva(atual->prox);
-   free(atual);
-}
-void    resetarListaRecursivamente(pDLista pd){
-
-   resetarListaRecursiva(pd->primeiro);
-   pd->primeiro   = NULL;
-   pd->ultimo     = NULL;
-   pd->quantidade = 0;
-}
-//.......................................................................................
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 pDLista uniao(pDLista lista1, pDLista lista2, FuncaoComparacao pfc){
 
    pDLista novaLista = criarLista();
@@ -492,84 +471,6 @@ pDLista uniao2(pDLista lista1, pDLista lista2, FuncaoComparacao pfc){
     return lista3;
 }
 
-
-
-
-//..........................................................................
-void* maiorElemento(pNoh aux, void* maiorAtual, FuncaoComparacao pfc){
-        printf(" test2e");
-   if(pfc(aux->info,maiorAtual) < 0){
-      printf(" teste");
-      maiorAtual = aux->info;
-   }
-   else
-   if(aux->prox == NULL);
-         printf(" teste");
-
-      return maiorAtual;
-
-   return maiorElemento(aux->prox,maiorAtual, pfc);
-}
-                                                                                                                        /// ...EXERCICIO 4 PROVA... por algum motivo, pfc nao rodou. ///
-void* maiorElementoRecursivo(pDLista lista, FuncaoComparacao pfc){
-
-   void* maiorAtual = lista->primeiro->info;
-   pNoh aux = lista->primeiro;
-
-   maiorElemento(aux, maiorAtual, pfc);
-}
-//..........................................................................
-
-
-void incluirFormula2(pDLista pd, int info){
-
-   int mod;
-   int i = 0;
-   while (info > 0){
-      mod = info % 10;
-      info = info / 10;
-      incluirInfoCoefUnico(pd, mod,i);
-      i++;
-   }
-}
-                                                                                                                     /// ...EXERCICIO 3 PROVA VERSAO FINAL... ///
-                                                                                                                     ///para este implementei incluinrinfo no inicio e usei como inclusao de coefunico
-                                                                                                                     /// com um laço mod e contador que dizia qual info seria incluida em coeficiente
-                                                                                                                     /// e em expoente(de acordo com i).
-void incluirInfoCoefUnico(pDLista pd, int info, int i){
-   if (pd == NULL)
-   {
-      printf("Lista nao existe ainda, nao eh possivel incluir!");
-      return;
-   }
-
-   pNoh pNovo = malloc(sizeof(Noh));
-   pFor pNovoFor = malloc(sizeof(For));
-
-   pNovoFor->coeficiente = info;
-   pNovoFor->base = 10;
-   pNovoFor->expoente = i;
-
-   pNovo->info = pNovoFor;
-   pNovo->prox = pd->primeiro;
-
-   if(pd->ultimo == NULL){
-    pd->ultimo = pNovo;
-   }
-
-   pd->primeiro = pNovo;
-   pd->quantidade++;
-}
-//....................................................................................................................
-
-
-
-
-
-
-
-
-
 pDLista intersecao(pDLista lista1, pDLista lista2, FuncaoComparacao pfc){ // nao funciona
     /* Imprime somente os elementos repetidos das listas.*/
     pDLista lista3;
@@ -602,7 +503,7 @@ pDLista intersecao(pDLista lista1, pDLista lista2, FuncaoComparacao pfc){ // nao
     return lista3;
 }
 
-int disjunta (pDLista lista1, pDLista lista2, FuncaoComparacao pfc){ // bugada
+int 	disjunta (pDLista lista1, pDLista lista2, FuncaoComparacao pfc){ // bugada
     pNoh atual1, atual2;
 
     atual1 = lista1->primeiro;
@@ -623,7 +524,7 @@ int disjunta (pDLista lista1, pDLista lista2, FuncaoComparacao pfc){ // bugada
  return 1;
 }
 
-void ordenar (pDLista lista, void *novainfo){ // bugada
+void 	ordenar (pDLista lista, void *novainfo){ // bugada
    pNoh atual, frente, aux;
 
    atual = lista->primeiro;
@@ -644,43 +545,11 @@ void ordenar (pDLista lista, void *novainfo){ // bugada
 }
 
 
-
-void incluirInfoPosicao(struct DLista *lista, void *info, int n);
-
-
-
-
 /*7-Escreva uma funçao para incluir uma informaçao em uma lista encadeada em uma posiçao específica.
-pDLista incluir (pDLista lista, void * info){ //nao funciona
-    pNoh ant, atual, novo;
-    int i, posicao = 3;
-
-    atual = lista->primeiro;
-    ant   = lista->primeiro;
-
-    for(i = 1; i < posicao; i++){
-        ant   = atual;
-        atual = atual->prox;
-    }
-
-    novo = (struct Noh *) malloc(sizeof(struct Noh));
-    novo->info = info;
-
-    ant->prox  = novo;
-    novo->prox = atual;
-    lista->quantidade++;
-
-    return lista;
-}*/
-
+*/
 /*9-Implemente uma funçao que receba como parametro um vetor e o tranforma em uma lista encadeada, conforme o prototipo a seguir:
-pDLista constroiLista (void * vet[ ], int tam){
-}*/
-
+pDLista constroiLista (void * vet[ ], int tam){} */
 /*10-Implemente tambem a operaça o inversa:
-void* constroiVetor (pDLista lista){
-}*/
-
-
+void* constroiVetor (pDLista lista){} */
 
 #endif
