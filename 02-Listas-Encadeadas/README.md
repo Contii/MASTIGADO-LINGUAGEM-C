@@ -12,7 +12,8 @@ Listas encadeadas são compostas por `Structs` chamadas de Nós, formadas por do
 O campo ponteiro para `struct` é responsável por indicar onde está o próximo valor da lista, por isso deve receber uma `struct`, pois o Noh que contém o próximo valor
 será outra `Struct Noh`.
 
-Uma lista encadeada deve ser acessada pela primeira `Struct Noh`, como ja deve ter imaginado. Para acessar o ultimo valor, deverá ser acessado todos os Nohs da lista.
+Uma lista encadeada deve ser acessada pela primeira `Struct Noh`, como ja deve ter imaginado. Para acessar o ultimo valor, deverá ser acessado todos os Nohs da lista. Mas isso não acontecerá em nossa lista pois será declarado
+um campo para o ultimo Noh na propria definição da lista, neste caso, para acessar do segundo ao penúltimo noh, deverá se passar pelos anteriores.
 
 > Existem listas duplamente encadeadas, estas possuem 3 campos, `anterior`(ponteiro struct), `info` e `prox`(ponteiro struct). Desta forma, é possivel ir e vir na lista, tanto começando pelo primeiro valor ou ultimo valor.
 
@@ -28,7 +29,7 @@ com ponteiros `VOID` e alocação dinâmica de memória.
  
 ### mainListas.c
 
-Front end do programa.
+Front-End do programa.
 
 ### structs.h
 
