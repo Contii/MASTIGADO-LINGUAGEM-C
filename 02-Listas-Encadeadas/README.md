@@ -14,9 +14,9 @@ será outra `Struct Noh`.
 
 Uma lista encadeada deve ser acessada pela primeira `Struct Noh`, como ja deve ter imaginado. Para acessar o ultimo valor, deverá ser acessado todos os Nohs da lista.
 
-Existem listas duplamente encadeadas, estas possuem 3 campos, `anterior`(ponteiro struct), `info` e `prox`(ponteiro struct). Desta forma, é possivel ir e vir na lista, tanto começando pelo primeiro valor ou ultimo valor.
+> Existem listas duplamente encadeadas, estas possuem 3 campos, `anterior`(ponteiro struct), `info` e `prox`(ponteiro struct). Desta forma, é possivel ir e vir na lista, tanto começando pelo primeiro valor ou ultimo valor.
 
-O campo valor poderá ser `INT` para uma lista de numeros inteiros, mas neste programa trabalhamos com ponteiros `VOID`.
+O campo info poderá ser `INT` para uma lista de numeros inteiros, mas neste programa trabalhamos com ponteiros `VOID`.
 desta forma, qualquer valor poderá ser armazenado na `struct Noh`, até mesmo outra `struct`. Aqui começa a se ver a importância de saber trabalhar
 com ponteiros `VOID` e alocação dinâmica de memória.
  
