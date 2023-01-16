@@ -27,7 +27,7 @@ com ponteiros `VOID` e alocação dinâmica de memória.
  
  ## Arquivos
  
-### mainListas.c
+### MainListas.c
 
 Front-End do programa.
 
@@ -42,3 +42,7 @@ Biblioteca com o Back-End do programa, contendo funções de manipulação de li
 ### UtilsListas.h
 
 Bilioteca com o Back-End do programa, contendo as funções e comentários. Uma versão adaptada da biblioteca `utilsPonteiros.h`, vista no programa anterior.
+
+### TAD_ListaLinear.h
+
+Bilioteca com os tipos abstratos de dados.
