@@ -21,4 +21,6 @@ Pilhas.
 
 Arvores.
 
+Tipo Abstrato de Dado.
+
 # Agradecimento especial ao Prof. Dr. Evando Carlos Pessini.
