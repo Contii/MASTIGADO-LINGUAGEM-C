@@ -7,7 +7,7 @@
 
 /* ------------------------------- */
 struct dFila{
-    pDLista listinha;
+    pDLista pdLista;
 };
 
 /* ----------------------------------------------------------------------------------- */
@@ -18,20 +18,20 @@ pDFila criarFila(){
     /* aloca memoria para o descritor */
     pDFila pd = (pDFila) malloc(sizeof(DFila));
     /* o descritor da fila tem os mesmos campos do descritor de lista */
-    pd->listinha = criarLista();
+    pd->pdLista = criarLista();
     return pd;
 }
 
 void enfileirarInfo(pDFila fila, void *info){
 
    if (fila != NULL)
-       incluirInfo(fila->listinha, info);
+       incluirInfo(fila->pdLista, info);
 }
 
 void* desenfileirarInfo(pDFila fila){
 
    if (fila != NULL && filaVazia(fila)==0)
-       return excluirInfoPos(fila->listinha, 1);
+       return excluirInfoPos(fila->pdLista, 1);
 
    /* indica que a fila está vazia */
    return NULL;
@@ -40,7 +40,7 @@ void* desenfileirarInfo(pDFila fila){
 int filaVazia(pDFila fila){
 
     if (fila != NULL)
-        if (fila->listinha->quantidade == 0)
+        if (fila->pdLista->quantidade == 0)
            return 1;
 
     return 0;
@@ -50,7 +50,7 @@ pDLista NGE(pDFila fila, FuncaoComparacao pfc){ /// Não consegui fazer a função 
                                                 ///  por algum motivo a lista sai sempre com o primeiro valor e -1.
    pDLista listaNge = criarLista();
 
-   pNoh      atual   = fila->listinha->primeiro;
+   pNoh      atual   = fila->pdLista->primeiro;
    pNoh      maior   = atual->prox;
    pNoh      aux     = maior->prox;
 
@@ -120,7 +120,7 @@ pDFila fatoracaoPrima(int n){ /// exercicio 2
                                                             printf("existe primo \n");
           while(aux > 0){
                                                             printf("enquanto primo existe iunclua-o\n");
-            incluirInfo(primos->listinha,alocaInt(primo));
+            incluirInfo(primos->pdLista,alocaInt(primo));
             aux--;
           }
       }
