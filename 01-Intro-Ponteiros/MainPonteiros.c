@@ -5,10 +5,10 @@
 
 int main(){
 /* ----------------------------------------------------------------------------------- */
-/* Todo endereco de memoria [0000](ponteiro) usa sempre 4 bytes para ser armazenado,
-    desta forma, ao utilizar ponteiros VOID, podemos implementar funções genéricas
+/* Todo endereco de memoria [0000] possui 4 bytes. um ponteiro é um endereço que aponta
+    para outro endereço. Ao utilizar ponteiros VOID, podemos implementar funções genéricas
      que recebem dados de qualquer tipo e retornem dados de qualquer tipo, contanto que
-      seja feita uma implementação de variáveis utilizando ponteiros para VOID, funções
+      sejam feitas implementações de variáveis utilizando ponteiros para VOID, funções
        que recebam ponteiros VOID e que retornem ponteiros VOID.*/
 
    void *P; /* <-Declaração de um ponteiro VOID.(Apontando para qualquer tipo)
