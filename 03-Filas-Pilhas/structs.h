@@ -40,4 +40,8 @@ struct dFila{
     pDLista pdLista;
 };
 /* ------------------------------- */
+struct dPilha{
+    pDLista pdLista;
+};
+/* ------------------------------- */
 #endif
