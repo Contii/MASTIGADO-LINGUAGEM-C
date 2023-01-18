@@ -39,7 +39,7 @@ Biblioteca para armazenar as structs que poderão ser utilizadas no programa.
 
 Biblioteca com o Back-End do programa, contendo funções de manipulação de listas.
 
-### UtilsListas.h
+### utilsListas.h
 
 Bilioteca com o Back-End do programa, contendo as funções e comentários. Uma versão adaptada da biblioteca `utilsPonteiros.h`, vista no programa anterior.
 

@@ -4,7 +4,7 @@
  
  ## Arquivos
  
-### mainPonteiros.c
+### MainPonteiros.c
 
 Front end do programa.
 
@@ -12,6 +12,6 @@ Front end do programa.
 
 Biblioteca para armazenar as structs que poderão ser utilizadas no programa.
 
-### UtilsPonteiros.h
+### utilsPonteiros.h
 
 Bilioteca com o Back-end do programa, contendo as funções e comentários.
