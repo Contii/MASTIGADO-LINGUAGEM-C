@@ -4,6 +4,7 @@
 #include "structs.h"
 #include "TAD_ListaLinear.h"
 
+
 /* ----------------------------------------------------------------------------------- */
 /* ----------------------------------- FUNÇÕES BASE ---------------------------------- */
 /* ----------------------------------------------------------------------------------- */
@@ -15,20 +16,6 @@ pDLista criarLista(){
     pd->primeiro   = NULL;
     pd->ultimo     = NULL;
     return pd;
-}
-void    resetarLista(pDLista pd){
-/* Esta função reseta a lista pelo fato de o ponteiro descritor
-    continuar declarado como contendo zero elementos.*/
-   pNoh atual;
-   atual = pd->primeiro;
-   while(atual != NULL){
-      pNoh aux = atual->prox;
-      free(atual);
-      atual = aux;
-   }
-   pd->primeiro   = NULL;
-   pd->ultimo     = NULL;
-   pd->quantidade = 0;
 }
 void    incluirInfo(pDLista pd, void *info1){
 /* Verifica se a lista existe para depois trabalhar. pd = ponteiro descritor. */
@@ -120,18 +107,36 @@ int     excluirInfo(pDLista pd, void *info1, FuncaoComparacao pfc){
    }
    return 0;
 }
-void    imprimirLista(pDLista pd, FuncaoImpressao pfi){
-/* Criação de um ponteiro AUXNOH que receberá o primeiro elemento da lista. */
-    pNoh aux;
-    aux = pd->primeiro;
-/* Até que AUXNOH aponte para NULL, assim como o ULTIMO da lista, o comando
-     WHILE ira chamar a FuncaoImpressao fornecida como parâmetro. */
-    while(aux != NULL){
-       //printf("%d", *(((int *)aux->info))); /* é preciso dizer qual o tipo de INFO. */
-       pfi(aux->info); /* A FuncaoImpressao não imprime o NOH mas sim o campo INFO. */
-
-       aux = aux->prox;
+void*   excluirInfoPos(pDLista pd, int pos){
+    int cont=1;
+    pNoh atual, ant;
+    atual = pd->primeiro;
+    ant   = NULL;
+    /* encontra o noh correspondente a posicao informada */
+    while(atual != NULL && cont < pos){
+       ant   = atual;
+       atual = atual->prox;
+       cont++;
     }
+    /* verifica se a info existe na lista */
+    if (atual != NULL){
+        /* eh o primeiro da lista */
+        if (atual == pd->primeiro)
+            pd->primeiro = atual->prox;
+        else
+        /* eh o ultimo da lista */
+        if (atual == pd->ultimo){
+            pd->ultimo = ant;
+            ant->prox  = NULL;
+        } else
+             /* estah no meio da lista */
+             ant->prox = atual->prox;
+        pd->quantidade--;
+        void * auxInfo = atual->info;
+        free(atual);
+        return auxInfo;
+    }
+    return NULL;
 }
 int     contemInfo(pDLista pd, void *info1, FuncaoComparacao pfc){
 /* Utilizando um AUXNOH, atribui a ele o campo primeiro para então, percorrer toda a
@@ -147,42 +152,52 @@ int     contemInfo(pDLista pd, void *info1, FuncaoComparacao pfc){
    }
       return 0;
 }
-/* ----------------------------------------------------------------------------------- */
-/* -------------------------------- FUNÇÕES RECURSIVAS ------------------------------- */
-/* ----------------------------------------------------------------------------------- */
-void    imprimirListaRecursivamente(pDLista pd, FuncaoImpressao pfi){
-   imprimirListaRecursivo(pd->primeiro, pfi);
-}
-void    imprimirListaRecursivo(struct noh *atual, FuncaoImpressao pfi){
-   if (atual == NULL)
-      return;
-   pfi(atual->info);
-   imprimirListaRecursivo(atual->prox, pfi);
-}
+void*   obtemInfo(pDLista pd, int pos){
 
-void    resetarListaRecursiva(pNoh atual){
-   if (atual == NULL)
-      return;
-   resetarListaRecursiva(atual->prox);
-   free(atual);
+    pNoh aux = pd->primeiro;
+    int i=1;
+
+    while(aux != NULL){
+       if (i == pos)
+          return aux->info;
+       aux = aux->prox;
+       i++;
+    }
+
+    return NULL;
 }
-void    resetarListaRecursivamente(pDLista pd){
-   resetarListaRecursiva(pd->primeiro);
+void    imprimirLista(pDLista pd, FuncaoImpressao pfi){
+/* Criação de um ponteiro AUXNOH que receberá o primeiro elemento da lista. */
+    pNoh aux;
+    aux = pd->primeiro;
+/* Até que AUXNOH aponte para NULL, assim como o ULTIMO da lista, o comando
+     WHILE ira chamar a FuncaoImpressao fornecida como parâmetro. */
+    while(aux != NULL){
+       //printf("%d", *(((int *)aux->info))); /* é preciso dizer qual o tipo de INFO. */
+       pfi(aux->info); /* A FuncaoImpressao não imprime o NOH mas sim o campo INFO. */
+
+       aux = aux->prox;
+    }
+}
+void    destruirListaRecursiva(pNoh atual){
+    if (atual == NULL)
+        return;
+    destruirListaRecursiva(atual->prox);
+    free(atual);
+}
+void    resetarLista(pDLista pd){
+/* Esta função reseta a lista pelo fato de o ponteiro descritor
+    continuar declarado como contendo zero elementos.*/
+   pNoh atual;
+   atual = pd->primeiro;
+   while(atual != NULL){
+      pNoh aux = atual->prox;
+      free(atual);
+      atual = aux;
+   }
    pd->primeiro   = NULL;
    pd->ultimo     = NULL;
    pd->quantidade = 0;
-}
-/* ----------------------------------------------------------------------------------- */
-/* ---------------------------------- OUTRAS FUNÇÕES --------------------------------- */
-/* ----------------------------------------------------------------------------------- */
-int     quantosNoh(pDLista lista){
-   pNoh atual = lista->primeiro;
-   int quantidade = 0;
-   while(atual != NULL){
-      quantidade ++;
-      atual =  atual->prox;
-   }
-   return quantidade;
 }
 pDLista duplicarLista(pDLista pd, FuncaoAlocacao pfa){
 /* Crio uma nova lista para alocar os valores. */
@@ -208,46 +223,6 @@ pDLista duplicarLista(pDLista pd, FuncaoAlocacao pfa){
    }
    return pNovaLista; /* Um ponteiro pDLista deverá resgatar este return. */
 }
-pDLista split(pDLista lista, FuncaoPredicado pfp, FuncaoComparacao pfc){
-/* Função que retorna nova lista de acordo com a FuncaoPredicado. */
-   pDLista ListaNova = criarLista();
-   pNoh atual = lista->primeiro;
-   pNoh aux = NULL;
-
-   while(atual != NULL){
-      aux = atual->prox; /* Necessario para recuperar o encadeamento da lista, caso info seja excluida. */
-      if(pfp(atual->info) == 1){
-
-      incluirInfo(ListaNova,atual->info); /* Inclusão do predicado na lista nova. */
-      excluirInfo(lista,atual->info,pfc); /* info sendo excluida. */
-      }
-      atual = aux; /* recuperando o encadeamento. */
-   }
-   return ListaNova;
-}
-int     contida (pDLista lista1, pDLista lista2, FuncaoComparacao pfc){
-  /* Verifica se uma lsita esta dentro de outra lista. */
-   pNoh atual1, atual2;
-   int flag;
-   atual1 = lista1->primeiro;
-   atual2 = lista2->primeiro;
-   
-   if(lista1->quantidade > lista2->quantidade)
-      return 0;
-   while(atual1 != lista1->ultimo){
-      flag = 0;
-      atual2 = lista2->primeiro;
-      while(atual2 != lista2->ultimo){
-         if(pfc(atual1->info , atual2->info) == 0)
-            flag = 1;
-         atual2 = atual2->prox;
-      }
-      if(flag == 0)
-         return 0;
-      atual1 = atual1->prox;
-   }
-   return 1;
-};
 pDLista dividirLista(pDLista lista,void* info, FuncaoComparacao pfc){
 /* Divide a lista a partir de info, o prox dele sera o primeiro da novaLista. */
    pDLista novaLista = criarLista();
@@ -296,6 +271,107 @@ pDLista dividirLista2(pDLista pListaOriginal, int pos){
     }
     return pNovaLista;
 }
+
+
+/* ----------------------------------------------------------------------------------- */
+/* -------------------------------- FUNÇÕES RECURSIVAS ------------------------------- */
+/* ----------------------------------------------------------------------------------- */
+void    imprimirListaRecursivamente(pDLista pd, FuncaoImpressao pfi){
+   imprimirListaRecursivo(pd->primeiro, pfi);
+}
+void    imprimirListaRecursivo(struct noh *atual, FuncaoImpressao pfi){
+   if (atual == NULL)
+      return;
+   pfi(atual->info);
+   imprimirListaRecursivo(atual->prox, pfi);
+}
+
+void    resetarListaRecursiva(pNoh atual){
+   if (atual == NULL)
+      return;
+   resetarListaRecursiva(atual->prox);
+   free(atual);
+}
+void    resetarListaRecursivamente(pDLista pd){
+   resetarListaRecursiva(pd->primeiro);
+   pd->primeiro   = NULL;
+   pd->ultimo     = NULL;
+   pd->quantidade = 0;
+}
+
+void*   maiorElemento(pNoh aux, void* maiorAtual, FuncaoComparacao pfc){
+   printf(" test2e");
+   if(pfc(aux->info,maiorAtual) < 0){
+      printf(" teste");
+      maiorAtual = aux->info;
+   }
+   else
+   if(aux->prox == NULL);
+      printf(" teste");
+      return maiorAtual;
+   return maiorElemento(aux->prox,maiorAtual, pfc);
+}                                                                                                                        /// ...EXERCICIO 4 PROVA... por algum motivo, pfc nao rodou. ///
+void*   maiorElementoRecursivo(pDLista lista, FuncaoComparacao pfc){
+   void* maiorAtual = lista->primeiro->info;
+   pNoh aux = lista->primeiro;
+   maiorElemento(aux, maiorAtual, pfc);
+}
+
+
+/* ----------------------------------------------------------------------------------- */
+/* ---------------------------------- OUTRAS FUNÇÕES --------------------------------- */
+/* ----------------------------------------------------------------------------------- */
+int     quantosNoh(pDLista lista){
+   pNoh atual = lista->primeiro;
+   int quantidade = 0;
+   while(atual != NULL){
+      quantidade ++;
+      atual =  atual->prox;
+   }
+   return quantidade;
+}
+
+pDLista split(pDLista lista, FuncaoPredicado pfp, FuncaoComparacao pfc){
+/* Função que retorna nova lista de acordo com a FuncaoPredicado. */
+   pDLista ListaNova = criarLista();
+   pNoh atual = lista->primeiro;
+   pNoh aux = NULL;
+
+   while(atual != NULL){
+      aux = atual->prox; /* Necessario para recuperar o encadeamento da lista, caso info seja excluida. */
+      if(pfp(atual->info) == 1){
+
+      incluirInfo(ListaNova,atual->info); /* Inclusão do predicado na lista nova. */
+      excluirInfo(lista,atual->info,pfc); /* info sendo excluida. */
+      }
+      atual = aux; /* recuperando o encadeamento. */
+   }
+   return ListaNova;
+}
+int     contida (pDLista lista1, pDLista lista2, FuncaoComparacao pfc){
+  /* Verifica se uma lsita esta dentro de outra lista. */
+   pNoh atual1, atual2;
+   int flag;
+   atual1 = lista1->primeiro;
+   atual2 = lista2->primeiro;
+   
+   if(lista1->quantidade > lista2->quantidade)
+      return 0;
+   while(atual1 != lista1->ultimo){
+      flag = 0;
+      atual2 = lista2->primeiro;
+      while(atual2 != lista2->ultimo){
+         if(pfc(atual1->info , atual2->info) == 0)
+            flag = 1;
+         atual2 = atual2->prox;
+      }
+      if(flag == 0)
+         return 0;
+      atual1 = atual1->prox;
+   }
+   return 1;
+};
+
 pNoh    encontraMaior(pDLista lista, FuncaoComparacao pfc){
     pNoh atual      = lista->primeiro;
     pNoh aux        = NULL;
@@ -456,10 +532,169 @@ void 	ordenar (pDLista lista, void *novainfo){ // bugada
       lista->primeiro = frente;
    }
 }
-/*17-Escreva uma funçao para incluir uma informaçao em uma lista encadeada em uma posiçao específica.
-*/
-/*18-Implemente uma funçao que receba como parametro um vetor e o tranforma em uma lista encadeada, conforme o prototipo a seguir:
+///..............incluir formula..........................
+void incluirFormula(pDLista pd, int info){
+   int coef1 = (info/100);
+   int coef2 = ((info%100)/10);
+   int coef3  = ((info%100)&10);
+   incluirInfoCoef1(pd, coef1);
+   incluirInfoCoef2(pd, coef2);
+   incluirInfoCoef3(pd, coef3);
+}
+void incluirInfoCoef1(pDLista pd, int info){
+/* Verifica se a lista existe para depois trabalhar. pd = ponteiro descritor. */
+   if (pd == NULL){
+      printf("Lista nao existe ainda, nao eh possivel incluir!");
+   return;
+   }
+
+/* Cria um ponteiro para FOR e aloca memoria para o mesmo. */
+   pFor pNovoFor = malloc(sizeof(For));
+
+/* Atribui para o campo INFO->COEFICIENTE de FOR, COEF fornecida pelo parâmetro da função. */
+   pNovoFor->coeficiente = info;
+   pNovoFor->base = 10;
+   pNovoFor->expoente = 2;
+
+   pNoh pNovo = malloc(sizeof(Noh));
+
+   pNovo->info = pNovoFor;
+   pNovo->prox = NULL;
+
+/* Cria um ponteiro AUXNOH para salvar o ULTIMO noh apontado por PD antes de
+    atualizar a lista, não há alocação pois AUXNOH não será mais usado após o
+     uso da função. */
+   pNoh auxUltimo  = pd->ultimo;
+
+/* Será atribuído ao ponteiro ULTIMO, o NOH. */
+   pd->ultimo      = pNovo;
+/* Atualiza a quantidade de nohs na lista.*/
+   pd->quantidade++;
+
+/* Se NOH for o único da lista, o descritor precisa ser atualizado também, no
+    campo PRIMEIRO, com NOH. Portanto, se PRIMEIRO = NULL, a atribuição é feita. */
+   if (pd->primeiro == NULL)
+      pd->primeiro = pNovo;
+   else{
+/* Por fim, se não for o único da lista, colocá-o no final da mesma. */
+      auxUltimo->prox = pNovo;
+   }
+}
+void incluirInfoCoef2(pDLista pd, int info){
+/* Verifica se a lista existe para depois trabalhar. pd = ponteiro descritor. */
+   if (pd == NULL){
+      printf("Lista nao existe ainda, nao eh possivel incluir!");
+   return;
+   }
+
+/* Cria um ponteiro para FOR e aloca memoria para o mesmo. */
+   pFor pNovoFor = malloc(sizeof(For));
+
+/* Atribui para o campo INFO->COEFICIENTE de FOR, COEF fornecida pelo parâmetro da função. */
+   pNovoFor->coeficiente = info;
+   pNovoFor->base = 10;
+   pNovoFor->expoente = 1;
+   pNoh pNovo = malloc(sizeof(Noh));
+   pNovo->info = pNovoFor;
+   pNovo->prox = NULL;
+
+/* Cria um ponteiro AUXNOH para salvar o ULTIMO noh apontado por PD antes de
+    atualizar a lista, não há alocação pois AUXNOH não será mais usado após o
+     uso da função. */
+   pNoh auxUltimo  = pd->ultimo;
+
+/* Será atribuído ao ponteiro ULTIMO, o NOH. */
+   pd->ultimo      = pNovo;
+/* Atualiza a quantidade de nohs na lista.*/
+   pd->quantidade++;
+
+/* Se NOH for o único da lista, o descritor precisa ser atualizado também, no
+    campo PRIMEIRO, com NOH. Portanto, se PRIMEIRO = NULL, a atribuição é feita. */
+   if (pd->primeiro == NULL)
+      pd->primeiro = pNovo;
+   else{
+/* Por fim, se não for o único da lista, colocá-o no final da mesma. */
+      auxUltimo->prox = pNovo;
+   }
+}
+void incluirInfoCoef3(pDLista pd, int info){	
+/* Verifica se a lista existe para depois trabalhar. pd = ponteiro descritor. */
+   if (pd == NULL){
+      printf("Lista nao existe ainda, nao eh possivel incluir!");
+   return;
+   }
+
+/* Cria um ponteiro para FOR e aloca memoria para o mesmo. */
+   pFor pNovoFor = malloc(sizeof(For));
+
+/* Atribui para o campo INFO->COEFICIENTE de FOR, COEF fornecida pelo parâmetro da função. */
+   pNovoFor->coeficiente = info;
+   pNovoFor->base = 10;
+   pNovoFor->expoente = 0;
+   pNoh pNovo = malloc(sizeof(Noh));
+   pNovo->info = pNovoFor;
+   pNovo->prox = NULL;
+
+/* Cria um ponteiro AUXNOH para salvar o ULTIMO noh apontado por PD antes de
+    atualizar a lista, não há alocação pois AUXNOH não será mais usado após o
+     uso da função. */
+   pNoh auxUltimo  = pd->ultimo;
+
+/* Será atribuído ao ponteiro ULTIMO, o NOH. */
+   pd->ultimo      = pNovo;
+/* Atualiza a quantidade de nohs na lista.*/
+   pd->quantidade++;
+
+/* Se NOH for o único da lista, o descritor precisa ser atualizado também, no
+    campo PRIMEIRO, com NOH. Portanto, se PRIMEIRO = NULL, a atribuição é feita. */
+   if (pd->primeiro == NULL)
+      pd->primeiro = pNovo;
+   else{
+/* Por fim, se não for o único da lista, colocá-o no final da mesma. */
+      auxUltimo->prox = pNovo;
+   }
+}
+void incluirFormula2(pDLista pd, int info){
+   int mod;
+   int i = 0;
+   while (info > 0){
+      mod = info % 10;
+      info = info / 10;
+      incluirInfoCoefUnico(pd, mod,i);
+      i++;
+   }
+   /*                EXERCICIO 3 PROVA VERSAO FINAL
+      para este implementei o algoritmo incluinrInfoNoInicio(linha67) e usei como inclusao de coefunico
+      com um laço mod e contador que dizia qual info seria incluida em coeficiente
+		e em expoente(de acordo com i).*/
+}                                                                                                             
+void incluirInfoCoefUnico(pDLista pd, int info, int i){
+   if (pd == NULL)
+   {
+      printf("Lista nao existe ainda, nao eh possivel incluir!");
+      return;
+   }
+
+   pNoh pNovo = malloc(sizeof(Noh));
+   pFor pNovoFor = malloc(sizeof(For));
+   pNovoFor->coeficiente = info;
+   pNovoFor->base = 10;
+   pNovoFor->expoente = i;
+   pNovo->info = pNovoFor;
+   pNovo->prox = pd->primeiro;
+
+   if(pd->ultimo == NULL){
+    pd->ultimo = pNovo;
+   }
+
+   pd->primeiro = pNovo;
+   pd->quantidade++;
+}
+///.......................................................
+
+/*Escreva uma funçao para incluir uma informaçao em uma lista encadeada em uma posiçao específica.*/
+/*Implemente uma funçao que receba como parametro um vetor e o tranforma em uma lista encadeada, conforme o prototipo a seguir:
 pDLista constroiLista (void * vet[ ], int tam){} */
-/*19-Implemente tambem a operaça o inversa:
+/*Implemente tambem a operaça o inversa:
 void* constroiVetor (pDLista lista){} */
 #endif

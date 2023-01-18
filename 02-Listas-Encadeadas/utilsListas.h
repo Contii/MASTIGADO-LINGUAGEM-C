@@ -1,9 +1,10 @@
-#ifndef UTILSFOREVER_H
-#define UTILSFOREVER_H
+#ifndef UTILSLISTAS_H
+#define UTILSLISTAS_H
 
+#include <stdio.h>
 #include "structs.h"
 #include "TAD_ListaLinear.h"
-#include <stdio.h>
+
 
 /*---------------- COMO É DEFINIDA UMA FUNÇÃO COM PONTEIROS PARA VOID -----------------*/
 
@@ -51,6 +52,14 @@ retorno    função    ( tipo   variavel , tipo              variavel)*/
 void    imprimeInt(void *info){
    int *pi     = (int *) info;
    printf("%d   ", *pi);
+}
+int converteInt(void *info){
+   int *p1 = (int *) info;
+   int p2 = 0;
+
+   p2 = *p1
+
+   return p2;
 }
 int     comparaInt(void *info1, void *info2){
 
@@ -605,4 +614,4 @@ int     predicadoMult3(void *info){
       return 0;
    }
 }
-#endif /* UTILSFOREVER_H */
+#endif

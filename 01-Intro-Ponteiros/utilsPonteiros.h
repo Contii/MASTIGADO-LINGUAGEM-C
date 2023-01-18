@@ -52,6 +52,14 @@ void    imprimeInt(void *info){
    int *pi     = (int *) info;
    printf("%d   ", *pi);
 }
+int converteInt(void *info){
+   int *p1 = (int *) info;
+   int p2 = 0;
+
+   p2 = *p1
+
+   return p2;
+}
 int     comparaInt(void *info1, void *info2){
 
 /* Função recebendo dois ponteiros VOID, trabalhando com eles em ponteiros INT,

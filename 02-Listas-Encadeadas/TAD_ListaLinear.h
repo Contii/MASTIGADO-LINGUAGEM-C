@@ -1,5 +1,5 @@
-#ifndef LISTA_TAD_H
-#define LISTA_TAD_H
+#ifndef TAD_LISTALINEAR_H
+#define TAD_LISTALINEAR_H
 
 /* -------------------------- TIPOS DE DADOS -------------------------- */
 
@@ -27,19 +27,19 @@ typedef void  (*FuncaoLiberacao) (void *);
 typedef int   (*FuncaoPredicado) (void *);
 typedef pNohd (*FuncaoLocalizar) (pDLista, FuncaoComparacao);
 
-
 /* ---------------------------- OPERAÇÕES ----------------------------- */
 
 pDLista  criarLista    ();
 void     incluirInfo   (pDLista, void *);
+void     incluirInfoNoInicio(pDLista pd, void *info1);
 int      excluirInfo   (pDLista, void *, FuncaoComparacao); /* o retorno int indica se a informacao procurada foi excluida*/
+void*    excluirInfoPos(pDLista, int);
 int      contemInfo    (pDLista, void *, FuncaoComparacao); /* o retorno int indica a posicao da informacao procurada dentro da lista*/
+void*    obtemInfo     (pDLista, int);
 void     imprimirLista (pDLista, FuncaoImpressao);
-
+void     destruirLista (pDLista);
 void     resetarLista  (pDLista);
-void     resetarLista2 (pDLista, FuncaoLiberacao);
-
 pDLista  duplicarLista (pDLista, FuncaoAlocacao);
 pDLista  dividirLista  (pDLista,void*, FuncaoComparacao); /* o parametro int estabelece a posicao da lista onde a divisao deve acontecer */
-
+pDLista  dividirLista2(pDLista pListaOriginal, int pos);
 #endif

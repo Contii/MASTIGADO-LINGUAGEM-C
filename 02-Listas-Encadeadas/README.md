@@ -24,8 +24,8 @@ com ponteiros `VOID` e alocação dinâmica de memória.
 #### Segue uma imagem de como uma lista de ponteiros VOID pode ser construida:
 
 <p align="center"> <img src="https://github.com/Contii/MASTIGADO-LINGUAGEM-C/blob/master/02-Listas-Encadeadas/Imagens/Imagem-Lista-Encadeada-VOID.png" width="100%"> </p>
- 
- ## Arquivos
+
+## Arquivos
  
 ### MainListas.c
 
