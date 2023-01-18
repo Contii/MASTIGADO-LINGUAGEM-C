@@ -1,7 +1,8 @@
 #include <stdio.h>
 
-#include "UtilsFilaPilha.h"
-#include "Fila/Fila.h"
+#include "utilsFilaPilha.h"
+#include "Fila/fila.h"
+#include "pilha/PilHa.h"
 
 int main(){
    pDFila fileira1 = criarFila();
@@ -12,8 +13,6 @@ int main(){
    enfileirarInfo(fileira1, alocaInt(1));
    enfileirarInfo(fileira1, alocaInt(3));
 
-
-/*
    void *info = desenfileirarInfo(fileira1);
    printf("\nRetirou o inteiro = %d \n", *((int*)info));
 
@@ -21,17 +20,22 @@ int main(){
       info = desenfileirarInfo(fileira1);
       printf("\nRetirou o inteiro = %d \n", *((int*)info));
    }
-*/
+   
+   pDPilha pPilhaInt = criarPilha();
 
-   printf("-------exercicio 1-------\n");
-/// para o exercicio 1, tem a função NGE em fila.h (linha 49)
-/// em utilsForever.h tem a struct nge e a função imprimeNge (linha 550)
-//   pDLista lista1 = NGE(fileira1, comparaInt);
-//   imprimirLista(lista1, imprimeNge);
-   printf("\n");
-   printf("-------exercicio 2-------\n");
-/// exercicio 2
-//   pDFila primos = fatoracaoPrima(630);
-//   imprimirLista(primos->listinha,imprimeInt);
-   printf("\n");
+   empilharInfo(pPilhaInt, alocaInt(5));
+   empilharInfo(pPilhaInt, alocaInt(3));
+   empilharInfo(pPilhaInt, alocaInt(9));
+   empilharInfo(pPilhaInt, alocaInt(1));
+   empilharInfo(pPilhaInt, alocaInt(2));
+
+
+   void *info = desempilharInfo(pPilhaInt);
+   printf("\nDesempilhou o inteiro = %d \n", *((int*)info));
+
+   while (pilhaVazia(pPilhaInt)==0){
+      info = desempilharInfo(pPilhaInt);
+      printf("\nDesempilhou o inteiro = %d \n", *((int*)info));
+   }
+	
 }

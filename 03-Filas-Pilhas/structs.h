@@ -1,5 +1,5 @@
-#ifndef STRUCTS_FILA_H
-#define STRUCTS_FILA_H
+#ifndef STRUCTS_H
+#define STRUCTS_H
 
 /* ------------------------------- */
 struct noh{
@@ -39,5 +39,5 @@ struct pessoa{
 struct dFila{
     pDLista pdLista;
 };
-
+/* ------------------------------- */
 #endif
