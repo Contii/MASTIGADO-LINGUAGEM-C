@@ -16,15 +16,15 @@ Aqui, mais do que nunca, o TAD será necessário. Ele nos permite dar um nome di
  
 ### Pasta Fila
 
-Pasta com a biblioteca contendo funções de manipulação de Filas.
+Pasta com a biblioteca contendo funções de manipulação de filas.
 
 ### Pasta ListaLinear
 
-Pasta com a biblioteca contendo funções de manipulação de Listas.
+Pasta com a biblioteca contendo funções de manipulação de listas.
 
 ### Pasta Pilha
 
-Pasta com a biblioteca contendo funções de manipulação de Pilhas.
+Pasta com a biblioteca contendo funções de manipulação de pilhas.
 
 ### MainFilaPilha.c
 
