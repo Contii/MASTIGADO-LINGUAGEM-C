@@ -48,12 +48,10 @@ retorno    função    ( tipo   variavel , tipo              variavel)*/
 /* ----------------------------------------------------------------------------------- */
 /* -------------------------------- TIPO DE DADO INT --------------------------------- */
 /* ----------------------------------------------------------------------------------- */
-
 void    imprimeInt(void *info){
    int *pi     = (int *) info;
    printf("%d   ", *pi);
 }
-
 int     comparaInt(void *info1, void *info2){
 
 /* Função recebendo dois ponteiros VOID, trabalhando com eles em ponteiros INT,
@@ -68,15 +66,13 @@ int     comparaInt(void *info1, void *info2){
     else
         return 1;
 }
-
 int     comparaIntValor(void *info1, void *info2){
 
-/* Função rigual a comparaInt mas que retorna a diferença entre os valores. */
+/* Função igual a comparaInt mas que retorna a diferença entre os valores. */
    int *p1 = (int *)info1;
    int *p2 = (int *)info2;
       return *p2 - *p1;
 }
-
 int*    somaInt(void *info1, void *info2){
 
 /* Função recebendo dois ponteiros VOID, trabalhando com eles em ponteiros INT,
@@ -91,7 +87,6 @@ int*    somaInt(void *info1, void *info2){
    return soma; /* <-Retorna ponteiro INT que aponta para o valor atribuido em SOMA
                     em uma função que retorna somente ponteiros tipo INT. */
 }
-
 int     perfeitoInt(void *info){
 
    int *p1     = (int *) info;
@@ -111,7 +106,6 @@ int     perfeitoInt(void *info){
       else
        return 0; /* Não é perfeito */
 }
-
 void*   alocaInfoInt(void *info){
 
 /* Com esta função, podemos converter um ponteiro em INT,
@@ -123,7 +117,6 @@ void*   alocaInfoInt(void *info){
    return pi; /* <-Retorna um ponteiro INT em uma função que
                     retorna ponteiro VOID (ponteiro para qualquer coisa)*/
 }
-
 int*    alocaInt(int n){
 
 /* Com esta função, podemos converter uma variavel INT qualquer
@@ -134,7 +127,6 @@ int*    alocaInt(int n){
 
    return pi; /* <-retorna um ponteiro INT em uma função que retorna somente ponteiro INT. */
 }
-
 int*    alocaNInteiros(void *info){
 
 /* Declarando ponteiro P2 para armazenar um espaco de tamanho INFO para os numeros */
@@ -153,7 +145,6 @@ int*    alocaNInteiros(void *info){
    return p2; /* <-Retorna ponteiro INT cujo valor apontado por ele
                   está em uma memoria cheia de valores P2[|->10|32|31|34|23|21|45]. */
 }
-
 void    maiorInteiroNoPonteiro(void* info1, void *info2){
 
    int *p1     = (int *) info1;
@@ -174,17 +165,14 @@ void    maiorInteiroNoPonteiro(void* info1, void *info2){
    }
    printf("%d", *maior);
 }
-
 void*   numeroSucessorInt(void *info){
    (*((int*)info))++;
    return info;
 }
-
 void*   numeroAntecessorInt(void *info){
    (*((int*)info))--;
    return info;
 }
-
 void*   somaSucessoresInt(void *info1, void *info2){
 
 /* Esta função utiliza ponteiros para VOID pra realizar a soma entre dois valores
@@ -201,7 +189,6 @@ void*   somaSucessoresInt(void *info1, void *info2){
    if (*((int*)info2) > 0)
    return somaSucessoresInt(numeroSucessorInt(info1),numeroAntecessorInt(info2));
 }
-
 int     multIntSucessivo(int info1, int info2){
 
    int info3;
@@ -230,7 +217,6 @@ int     multIntSucessivo(int info1, int info2){
    else
       return info3 + multIntSucessivo(info1,info2);
 }
-
 int     primoInt(int info1,int info2){
 
 /* A seguinte função usa a recursividade para verificar se um dado valor INFO1 é primo.
@@ -254,7 +240,6 @@ int     primoInt(int info1,int info2){
      a função terá se certificado que o unico numero dividido por INFO1 é ele mesmo (numero primo).*/
       return primoInt(info1, info2-1);
 }
-
 int     quantosDigitos(int x){
 
    if (x < 10)
@@ -262,7 +247,6 @@ int     quantosDigitos(int x){
    else
       return 1 + quantosDigitos(x/10);
 }
-
 int     ocorrenciaDigitoInt(int info1, int info2, int info3){
 
 /* Esta função tem como objetivo, retornar se o algarismo INFO2 esta presente mais vezes em INFO1
@@ -289,7 +273,6 @@ int     ocorrenciaDigitoInt(int info1, int info2, int info3){
 
       return ocorrenciaDigitoInt(info1/10,info2,info3);
 }
-
 void    converteIntBin(int x){
 
 /* Esta função converte numeros inteiros para binario usando recursividade. */
@@ -301,7 +284,6 @@ void    converteIntBin(int x){
    printf("%d", x % 2);
 
 }
-
 int     calculoMDC(int x, int y){
 
    if (y==0){
@@ -311,7 +293,6 @@ int     calculoMDC(int x, int y){
    else
       return calculoMDC(y, x%y);
 }
-
 int     calculoMMC(int x,int y){
 
    int z;
@@ -323,7 +304,6 @@ int     calculoMMC(int x,int y){
       z = (x*y)/(calculoMMC(x,y));
       return (z);
 }
-
 int     potencia(int x, int y){
 
    if (y == 0)
@@ -335,7 +315,6 @@ int     potencia(int x, int y){
    else
       return 0;
 }
-
 int     fatorial(int x){
 
    if (x == 0)
@@ -347,7 +326,6 @@ int     fatorial(int x){
    else
       return 0;
 }
-
 //............raizDigital.............
 int     somaAlgarismo(int x){
 
@@ -360,7 +338,6 @@ int     somaAlgarismo(int x){
       x=((x/10) + (x%10));
       return raizDigital(x);
 }
-
 int     raizDigital(int x){
 
     if (x>9)
@@ -370,14 +347,12 @@ int     raizDigital(int x){
        return x;
 }
 //....................................
-
 int     somaDigitos(int x){
    if (x<10)
       return x;
 
    return x%10 + somaDigitos(x/10);
 }
-
 int     quantosDigitosX(int k, int n){
 
    if (n<10 && n!=k)
@@ -391,7 +366,6 @@ int     quantosDigitosX(int k, int n){
 
    return 0 + quantosDigitosX(k,n/10);
 }
-
 int     calculoMaxDC(int a, int b){
 
    if(a%b == 0)
@@ -399,7 +373,6 @@ int     calculoMaxDC(int a, int b){
    else
       return calculoMaxDC(b, a%b);
 }
-
 int     mod(int x, int y){
 /* Calcula quantas quantas vezes Y cabe em X, Esta função não retorna resto de divisão. */
 
@@ -413,17 +386,14 @@ int     mod(int x, int y){
    else
       return mod(x-y,y); /* remove 1 vez Y de X e chama recursivamente a função. */
 }
-
 /* ----------------------------------------------------------------------------------- */
 /* -------------------------------- TIPO DE DADO FLOAT ------------------------------- */
 /* ----------------------------------------------------------------------------------- */
-
 void    imprimeFloat(void *info){
 
    float *pf   = (float *) info;
    printf("%.2f   ", *pf);
 }
-
 int     comparaFloat(void *info1, void *info2){
 
     float* pf1 = (float*)info1;
@@ -435,7 +405,6 @@ int     comparaFloat(void *info1, void *info2){
     else
         return 1;
 }
-
 float*  somaFloat(void *info1, void *info2){
 
    float *soma  = malloc(sizeof(float));
@@ -444,17 +413,12 @@ float*  somaFloat(void *info1, void *info2){
    *soma = (*p1 + *p2);
       return soma;
 }
-
 float*  alocaFloat(float valor){
 
    float *pf = (float*) malloc(sizeof(float));
    *pf       = valor;
       return pf;
 }
-
-
-
-
 /* ----------------------------------------------------------------------------------- */
 /* --------------------------------- TIPO DE DADO DATA ------------------------------- */
 /* ----------------------------------------------------------------------------------- */
@@ -478,22 +442,20 @@ pData   alocaData(int dia, int mes, int ano){
    pdata->ano = ano;
    return pdata;
 }
-
 void    imprimeData (void *info){
 
    pData pdata = (pData) info;
    printf("teste %d /%d /%d \n", pdata->dia,pdata->mes,pdata->ano);
 }
-
 int     comparaData(void* info1, void* info2){
 
 /* Observe como a implementação do typedef afetou a definição STRUCT DATA e ponteiro
     para STRUCT DATA. */
-
+	
 /* Para o valor PDATA1, temos um tipo (pData) ponteiro para (Data) sendo que (Data)
     é um tipo STRUCT DATA. (assim como INT é um tipo de dado, (Data) agora também é um
      tipo de dado, e pData também é um tipo de dado (do tipo, ponteiro para (Data))). */
-
+	 
     pData  data1 = (pData) info1;
     pData  data2 = (pData) info2;
 
@@ -509,7 +471,6 @@ int     comparaData(void* info1, void* info2){
     else
         return 1; /* <-PDATAi é mais antiga (menor) que PDATA2 */
 }
-
 int     comparaDataDias  (void *info1, void *info2){
     pData p1 = (pData) info1;
     pData p2 = (pData) info2;
@@ -517,7 +478,6 @@ int     comparaDataDias  (void *info1, void *info2){
            ((p2->mes - p1->mes)*30)  +
             (p2->dia - p1->dia)  ;
 }
-
 void*   alocaInfoData(void *info){
    pData pd = (pData) malloc(sizeof(Data));
    pd->dia = ((pData)info)->dia;
@@ -525,11 +485,9 @@ void*   alocaInfoData(void *info){
    pd->ano = ((pData)info)->ano;
    return pd;
 }
-
 /* ----------------------------------------------------------------------------------- */
 /* ------------------------------------ OPERAÇOES ------------------------------------ */
 /* ----------------------------------------------------------------------------------- */
-
 void    bubbleSort(void* dados[], int tam, FuncaoComparacao fc){
    int i, j;
    void* temp;
@@ -581,7 +539,6 @@ resultado = |12|345 J = 1
 PARA TUDO I = 3 ATE QUE J = 0
 J = 0 */
 }
-
 void    alertaMenores(void * info){
 
    struct pessoa *P = (struct pessoa*) info;
@@ -591,7 +548,6 @@ void    alertaMenores(void * info){
        printf("\nNome: %s \nIdade: %d \n------------------------\n\n", P->Nome, P->Idade);
        }
 }
-
 void    registraPessoas(void *info, void *(funcao)(void *)){
 /* ----------------------------------------------------------------------------------- */
 /* Esta função recebe dois parametros, ponteiro VOID e ponteiro para FUNÇAO. */
@@ -629,7 +585,6 @@ void    registraPessoas(void *info, void *(funcao)(void *)){
       funcao(P+i);
    }
 }
-
 int     predicadoMult2(void *info){
 /* Retorna 1 caso o numero informado seja divisível por 2. */
    int *pi     = (int *) info;
@@ -640,9 +595,8 @@ int     predicadoMult2(void *info){
       return 0;
    }
 }
-
 int     predicadoMult3(void *info){
-/* Retorna 1 caso o numero informado seja divisível por 2. */
+/* Retorna 1 caso o numero informado seja divisível por 3. */
    int *pi     = (int *) info;
    if ((*pi % 3) == 0){
       return 1;
@@ -651,5 +605,4 @@ int     predicadoMult3(void *info){
       return 0;
    }
 }
-
 #endif /* UTILSFOREVER_H */
