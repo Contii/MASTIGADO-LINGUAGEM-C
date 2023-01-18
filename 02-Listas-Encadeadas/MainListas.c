@@ -1,8 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#include "Lista.h"
-#include "UtilsListas.h"
+#include "lista.h"
+#include "utilsListas.h"
 
 /* ----------------------------------------------------------------------------------- */
 /* Perceba o uso dos includes, ao trabalhar com listas, utilizarei algumas bibliotecas:

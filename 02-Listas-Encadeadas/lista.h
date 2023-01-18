@@ -1,7 +1,7 @@
 #ifndef LISTA_H
 #define LISTA_H
 
-#include "StructsForever.h"
+#include "structs.h"
 #include "TAD_ListaLinear.h"
 
 /* ----------------------------------------------------------------------------------- */

@@ -1,7 +1,7 @@
 #ifndef UTILSFOREVER_H
 #define UTILSFOREVER_H
 
-#include "StructsForever.h"
+#include "structs.h"
 #include "TAD_ListaLinear.h"
 #include <stdio.h>
 
