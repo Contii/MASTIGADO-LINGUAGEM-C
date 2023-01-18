@@ -270,11 +270,4 @@ int somaCaminhoRecursivo(pDArvore pinheiro, int n){
    return somaCaminho(pinheiro->raiz, 146);
 }
 ///....................................................................................................
-
-
-
-
-#endif
-#include "Operacoes/ArvoreBinaria/ArvoreBinaria.h"
-
 #endif

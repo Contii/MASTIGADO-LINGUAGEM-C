@@ -1,7 +1,8 @@
 #include <stdio.h>
 
 #include "utilsArvores.h"
-#include "ArvoreBinaria.h"
+#include "arvoreBinaria.h"
+#include "arvoreNaria.h"
 
 int main(){
     pDArvore pArvoreInt = criarArvore(2);

@@ -2,29 +2,6 @@
 #define STRUCTS_H
 
 /* ------------------------------- */
-struct noh{
-   void       *info;
-   struct noh *prox;
-};
-/* ------------------------------- */
-struct nohd{
-   struct noh *ant;
-   void       *info;
-   struct noh *prox;
-};
-/* ------------------------------- */
-struct formula{
-   void       *coeficiente;
-   void       *base;
-   void       *expoente;
-};
-/* ------------------------------- */
-struct dLista{
-   int         quantidade;
-   struct noh *primeiro;
-   struct noh *ultimo;
-};
-/* ------------------------------- */
 struct data{
    int         dia;
    int         mes;
@@ -36,4 +13,26 @@ struct pessoa{
    char        Nome[25];
 };
 /* ------------------------------- */
+struct formula{
+   void       *coeficiente;
+   void       *base;
+   void       *expoente;
+};
+/* ------------------------------- */
+struct dLista{			// Struct Descritor de Listas
+   int         quantidade;
+   struct noh *primeiro;
+   struct noh *ultimo;
+};
+/* ------------------------------- */
+struct noh{				// Struct Noh de Listas
+   void       *info;
+   struct noh *prox;
+};
+/* ------------------------------- */
+struct nohd{			// Struct Noh de Listas Duplas
+   struct noh *ant;
+   void       *info;
+   struct noh *prox;
+};
 #endif
