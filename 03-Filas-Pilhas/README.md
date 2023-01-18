@@ -10,7 +10,7 @@ Em `Pilhas` podemos usar como exemplo uma pilha de livros, para remover o primei
 
 Uma característica importante das estruturas de Pilha é que para remover um `Noh` que não esteja em cima da pilha, devemos criar uma segunda pilha para armazenar todos os que estão acima do mesmo, para em seguida recolocá-los na pilha original.
 <br> </br>
-Aqui, mais do que nunca, o TAD será necessário. Ele nos permite dar um nome diferente  para cada descritor, Lista, Fila ou Pilha, de maneira a não permitir por exemplo, que uma Pilha possa ser utilizada em uma função de Fila, por possuir a mesma estrutura. Isso desobedeceria a regra de acesso conceitual que uma estrutura de Pilha deve obedecer.
+Aqui, mais do que nunca, o TAD será necessário. Ele nos permite dar um nome diferente  para cada descritor de `Lista`, `Fila` ou `Pilha`, de maneira a não permitir por exemplo, que uma `Pilha` possa ser utilizada em uma função de `Fila`, por possuir a mesma estrutura. Isso desobedeceria a regra de acesso conceitual que uma `Pilha` deve obedecer.
 
 ## Arquivos
  
