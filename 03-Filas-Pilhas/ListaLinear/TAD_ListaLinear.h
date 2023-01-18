@@ -33,12 +33,13 @@ typedef pNohd (*FuncaoLocalizar) (pDLista, FuncaoComparacao);
 pDLista  criarLista    ();
 void     incluirInfo   (pDLista, void *);
 int      excluirInfo   (pDLista, void *, FuncaoComparacao); /* o retorno int indica se a informacao procurada foi excluida*/
+void*    excluirInfoPos(pDLista, int);
 int      contemInfo    (pDLista, void *, FuncaoComparacao); /* o retorno int indica a posicao da informacao procurada dentro da lista*/
+void*    obtemInfo     (pDLista, int);
 void     imprimirLista (pDLista, FuncaoImpressao);
-
+void     destruirLista (pDLista);
 void     resetarLista  (pDLista);
 void     resetarLista2 (pDLista, FuncaoLiberacao);
-
 pDLista  duplicarLista (pDLista, FuncaoAlocacao);
 pDLista  dividirLista  (pDLista,void*, FuncaoComparacao); /* o parametro int estabelece a posicao da lista onde a divisao deve acontecer */
 
